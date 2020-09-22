@@ -6,7 +6,7 @@ export default class Video extends Component{
                <div className='video'>
                    <h2 className='label-video font-weight-bold'>Vidéo</h2>
                    <iframe 
-                         width="475" 
+                         width="400" 
                         height="316" 
                         src="https://www.youtube.com/embed/CE22kRM3Tds" 
                         frameBorder="0" 

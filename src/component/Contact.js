@@ -68,6 +68,15 @@ export default class Contact extends Component {
                                                 </div>
                                             </div>
                                             <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="md-form mb-0">
+                                                        <input type="text" id="form-contact-name" class="form-control" placeholder='Association'/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                </div>
+                                            </div>
+                                            <div class="row">
                                                 <div class="col-md-12">
                                                     <div class="md-form mb-0">
                                                         <textarea id="form-contact-message" class="form-control md-textarea" rows="9" placeholder='Message'></textarea>

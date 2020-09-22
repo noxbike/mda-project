@@ -8,10 +8,10 @@ export default class Accueil extends Component {
     render(){
         return(
             <div>
-                <Carousel className='col-12'/>
-                <div className='row  col-12 d-flex justify-content-center sousCaroussel'>
-                    <Article2 className='col-md-7'/>
-                    <div className='col-offset-md-1 col-md-3'>
+                <Carousel/>
+                <div className='container sousCaroussel'>
+                    <Article2/>
+                    <div>
                         <Video/>
                         <Facebook/>
                     </div>
