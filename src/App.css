@@ -111,12 +111,12 @@ div .masque{
   z-index: 2;
 }
 
-div .masque-img{
-  background-color: rgba(221, 130, 69, 0.212);
+div .masque-img {
+  background-color: rgba(221, 130, 69);
   position: absolute;
-  margin-top: -71.8%;
+  margin-top: -100%;
   color: white;
-  padding-bottom: 58%;
+  padding-bottom: 69.5%;
   width: 100%;
   z-index: 2;
 }
