@@ -1,23 +1,27 @@
 import React, { Component } from 'react';
+import './navbar.css';
 import { Link } from 'react-router-dom';
 import logoMda from './logo/logo mda.png';
 
 export default class Navbar extends Component {
     render(){
         return(
-            <div>
-            <nav class="navbar navbar-expand-lg navbar-black">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                    <i class="fas fa-ellipsis-v fa"></i>
+            <nav class="navbar fixed-top navbar-expand-lg navbar-black">
+                <div className='container-logo'>
+                    <Link to='/' class="navbar-brand" href="#">
+                        <img src={logoMda} width="30" height="30" class="d-inline-block align-top" alt="" />
+                        Maison des associations
+                    </Link>
+                    <button class="navbar-toggler d-block d-md-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-ellipsis-v fa"></i>
+                    </button>
+                </div>
+                <button class="navbar-toggler d-none d-md-block d-lg-none" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                        <i class="fas fa-ellipsis-v fa"></i>
                 </button>
-                <a class="navbar-brand" href="/"><img src={ logoMda } alt='logo-mda'></img> Maison des associations</a>
-
                 <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
                     <div className='mr-auto mt-2 mt-lg-0'></div>
                     <ul class="navbar-nav  my-2 my-lg-0">
-                        <li class="nav-item">
-                            <Link to='/' class="nav-link" href="#home">Accueil <span class="sr-only">(current)</span></Link>
-                        </li>
                         <li class='nav-item'>
                             <div class="container">
                                 <div class="row">
@@ -63,9 +67,9 @@ export default class Navbar extends Component {
                                         Service civique
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="#">C'est quoi ?</a>
-                                            <a class="dropdown-item" href="#">Les missions</a>
-                                            <a class="dropdown-item" href="#">Postuler</a>
+                                            <Link class="dropdown-item" to='/c-est-quoi'>C'est quoi ?</Link>
+                                            <Link to='/mission' class="dropdown-item" href="#">Les missions</Link>
+                                            <Link to='/postuler' class="dropdown-item" href="#">Postuler</Link>
                                         </div>
                                     </div>
                                 </div>
@@ -77,36 +81,14 @@ export default class Navbar extends Component {
                         <li class="nav-item">
                             <Link to='/contact' class="nav-link" href="#contact">Contact</Link>
                         </li>
-                        <div class="dropdown">
-                            <a className='nav-link' id="dropdownMenu1" data-toggle="dropdown" type='button' aria-haspopup="true" aria-expanded="false">
+                        <div class="nav-item">
+                            <Link to='/login' className='nav-link'>
                                 <i className="fas fa-user fa" style={{fontSize: '1.2em'}}></i>
-                            </a>
-                            <div class="menu-login dropdown-menu dropdown-menu-right">
-                                <form class="px-4 py-3">
-                                    <div class="form-group">
-                                        <label for="exampleDropdownFormEmail1">Email address</label>
-                                        <input type="email" class="form-control" id="exampleDropdownFormEmail1" placeholder="email@example.com" />
-                                    </div>
-                                    <div class="form-group">
-                                    <label for="exampleDropdownFormPassword1">Password</label>
-                                    <input type="password" class="form-control" id="exampleDropdownFormPassword1" placeholder="Password" />
-                                    </div>
-                                    <div class="form-check">
-                                    <input type="checkbox" class="form-check-input" id="dropdownCheck" />
-                                    <label class="form-check-label" for="dropdownCheck">
-                                        Remember me
-                                    </label>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Sign in</button>
-                                </form>
-                            <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Forgot password?</a>
-                            </div>
+                            </Link>
                         </div>
                     </ul>
                 </div>
             </nav>
-        </div>
         );
     }
 }

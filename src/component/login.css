@@ -1,0 +1,16 @@
+#login{
+    margin-top: 3%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 77.6vh;
+}
+
+#login button {
+    background-image: linear-gradient(90deg, #a74c49, #b41a15);
+}
+
+#login img{
+    width: 50%
+}

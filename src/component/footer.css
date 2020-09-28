@@ -1,0 +1,14 @@
+footer > i{
+    font-size: 1.2em;
+}
+  
+footer a:hover{
+    text-decoration: none;
+    color:#932824;
+}
+  
+.footer-copyright, .footer-copyright a, .footer-copyright a:hover{
+    background-color: rgb(46, 43, 43) ;
+    color:white;
+    text-decoration: none;
+}

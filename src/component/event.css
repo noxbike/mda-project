@@ -1,0 +1,16 @@
+#events h2{
+    border-left: 8px solid #932724;
+    padding-left: 1%;
+}
+
+#events .row{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.collapse-content .fa.fa-heart:hover {
+    color: #f44336 !important;
+  }
+.collapse-content .fa.fa-share-alt:hover {
+    color: #0d47a1 !important;
+  }

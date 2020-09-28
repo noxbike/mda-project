@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './carousel.css';
 import lantern from './logo/lantern.jpg';
 
 export default class Carousel extends Component {
@@ -11,10 +12,10 @@ export default class Carousel extends Component {
                             <video className="video-fluid" autoPlay loop muted>
                                 <source src="https://mdbootstrap.com/img/video/Lines.mp4" type="video/mp4" width="1024" height="552" />
                             </video>
-                            <div className="full-bg-img flex-center masque">
-                                <div className="carousel-caption">
+                            <div className="full-bg-img flex-center">
+                                <div className="carousel-caption masque">
                                     <div className="animated fadeInDown">
-                                        <h1 className="h1-responsive animate__animated animate__bounceInRight">Landing Page</h1>
+                                        <h3 className="h1-responsive animate__animated animate__bounceInRight">Landing Page</h3>
                                         <p className='animate__animated animate__bounceInLeft'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting,</p>
                                     </div>
                                 </div>
@@ -26,8 +27,8 @@ export default class Carousel extends Component {
                             <video className="video-fluid" autoPlay loop muted>
                                 <source src="https://mdbootstrap.com/img/video/animation-intro.mp4" type="video/mp4" width='100%' />
                             </video>
-                            <div className="masque rgba-purple-slight">
-                                <div className="carousel-caption">
+                            <div className="full-bg-img flex-center">
+                                <div className="carousel-caption masque">
                                     <div className="animated fadeInDown">
                                         <h3 className="h3-responsive animate__animated animate__bounceInRight">Super light mask</h3>
                                         <p className='animate__animated animate__bounceInLeft'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.</p>
@@ -42,8 +43,8 @@ export default class Carousel extends Component {
                             <video muted autoPlay loop>
                                 <source src="https://mdbootstrap.com/images/video/Tropical.mp4" type="video/mp4" width='100%' />
                             </video>
-                            <div className="masque">
-                                <div className="carousel-caption">
+                            <div className="full-bg-img flex-center">
+                                <div className="carousel-caption masque">
                                     <div className="animated fadeInDown">
                                         <h3 className="h3-responsive animate__animated animate__bounceInRight">Strong mask</h3>
                                         <p className='animate__animated animate__bounceInLeft'>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -53,11 +54,10 @@ export default class Carousel extends Component {
                         </div>
                     </div>
                     <div className="carousel-item">
-                        <div className="view view-image">
-                            <img className="d-block w-100" src={lantern}
-                            alt="Second slide" />
-                            <div className="masque-img">
-                                <div className="carousel-caption">
+                        <div className="view">
+                            <img src={lantern} alt="Second slide" />
+                            <div className="full-bg-img flex-center">
+                                <div className="carousel-caption masque-img">
                                     <h3 className="h3-responsive animate__animated animate__bounceInRight">Strong mask</h3>
                                     <p className='animate__animated animate__bounceInLeft'>Secondary text</p>
                                 </div>

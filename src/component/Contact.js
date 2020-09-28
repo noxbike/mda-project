@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './contact.css';
 
 export default class Contact extends Component {
     render(){
@@ -11,22 +12,21 @@ export default class Contact extends Component {
                 <div className='formulaire-contact'>
                     <div class="container my-5">
                         <div className='row top-contact'>
-                            <div className='col-lg-8'>
+                            <div className='col-md-12 col-lg-8'>
                                 <h1>Contactez-nous</h1>
-                                <p>Indicium sex concidentium vetitis eius delectabatur circo ingentia diritatis vetitis lucratus et autem autem ludicris</p>
                             </div>
-                            <div className='row col-lg-4'>
-                                <div className='col-lg-2'>
-                                <i class="fa fa-clock-o" style={{fontSize: '2em'}} aria-hidden="true"></i>
+                            <div className='row col-md-12 col-lg-4'>
+                                <div className='col-12 col-md-2 col-lg-2'>
+                                    <i class="fa fa-clock-o" style={{fontSize: '2em'}} aria-hidden="true"></i>
                                 </div>
-                                <ul className='col-lg-4'>
+                                <ul className='col-6 col-md-4 col-lg-4'>
                                     <li><strong>Lundi :</strong></li>
                                     <li><strong>Mardi :</strong></li>
                                     <li><strong>Mercredi :</strong></li>
                                     <li><strong>Jeudi :</strong></li>
                                     <li><strong>Vendredi :</strong></li>
                                 </ul>
-                                <ul className='col-lg-5'>
+                                <ul className='col-6 col-md-5 col-lg-5'>
                                     <li>8h-12h 13h-17h</li>
                                     <li>8h-12h 13h-17h</li>
                                     <li>8h-12h 13h-17h</li>
@@ -80,7 +80,7 @@ export default class Contact extends Component {
                                                 <div class="col-md-12">
                                                     <div class="md-form mb-0">
                                                         <textarea id="form-contact-message" class="form-control md-textarea" rows="9" placeholder='Message'></textarea>
-                                                        <button type="button" class="btn btn-primary" style={{marginTop:'2%'}} data-toggle="button" aria-pressed="false" autocomplete="off">
+                                                        <button type="button" class="btn btn-outline-secondary" style={{marginTop:'2%'}} data-toggle="button" aria-pressed="false" autocomplete="off">
                                                             Envoyer <i class="far fa-paper-plane fa"></i>
                                                         </button>
                                                     </div>

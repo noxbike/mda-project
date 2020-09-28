@@ -1,0 +1,31 @@
+#services{
+    margin-top: 3%;
+    height:77.4vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#services h1, #services p{
+    width:80%;
+    text-align: left;
+}
+
+.reservation{
+    width:100%;
+    text-align: center;
+}
+
+.reservation a, .reservation a:hover{
+    padding:0.5% 3% 0.5% 3%;
+    font-size: 1.2em;
+    border-radius: 5px;
+    background-image: linear-gradient(90deg, #932724, #b82621);
+    color:white;
+    text-decoration: none;
+}
+
+.reservation a:hover{
+    box-shadow: 0px 10px 20px black;
+}

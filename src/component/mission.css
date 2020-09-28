@@ -1,0 +1,11 @@
+#mission{
+    height: 83.3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#mission h1{
+    border-left: 6px solid #932724;
+}
