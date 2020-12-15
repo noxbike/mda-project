@@ -1,0 +1,109 @@
+.Declaration-Associations{
+    margin-top: 2%;
+}
+
+.Declaration-Associations button{
+    background-color: rgb(147,39,36);
+    color:white;
+    font-size: 1.2em;
+    border:none;
+    outline: none;
+    margin:5px;
+    padding:5px 1% 5px 1%;
+}
+
+.Declaration-Associations button:hover,
+.Declaration-Associations .bloc button:hover{
+    opacity:0.8;
+    transition: 500ms;
+}
+
+.round{
+    z-index: 2000;
+    border-radius: 20px;
+    width:40px;
+    height:40px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color:white;
+}
+
+.line{
+    z-index: 0;
+    border-top: 1px solid rgba(128, 128, 128, 0.342);
+    position: absolute;
+}
+
+.step:last-child .line{
+    display:none;
+}
+
+.textStep h6{
+    font-size: 0.8em;
+    color:rgb(170, 170, 170);
+    text-align: center;
+    width:20%;
+}
+
+.Declaration-Associations .bloc{
+    box-shadow: 2px 2px 8px rgba(128, 128, 128, 0.281);
+}
+
+.Declaration-Associations .bloc{
+    padding: 2%;
+}
+
+.Declaration-Associations div .bloc{
+    padding:4%;
+}
+
+.Declaration-Associations #dragndrop{
+    width:100%;
+    margin: 0px;
+    padding: 0px;
+}
+
+.Declaration-Associations .btn-ajouter-conseil-administration{
+    background: none;
+    color:black;
+}
+
+@media screen and (max-width:434px){
+    .Declaration-Associations .hide-mobile{
+        display: none;
+    }
+
+    .Declaration-Associations .textStep h6{
+        text-align: center;
+        font-size: 1.5em;
+        width: 50%;
+    }
+}
+
+@media screen and (min-width: 319px){
+    .Declaration-Associations .line{
+        margin-top: 20px;
+        margin-left: 14%;
+        width: 8%;
+    }
+}
+
+@media screen and (min-width: 370px){
+    .Declaration-Associations .line{
+        margin-left: 12%;
+        width:10%;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (min-width: 480px){
+    .Declaration-Associations .line{
+        margin-left: 7.5%;
+        width:16%;
+        margin-top: 20px;
+    }
+}
+

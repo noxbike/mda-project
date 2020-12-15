@@ -1,0 +1,36 @@
+.serviceCivique{
+    width:60%;
+}
+
+@media screen and (min-width: 320px) {
+    .c-est-quoi {
+        width: 90%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+    
+    .c-est-quoi div{
+        text-align: center;
+    }
+    
+    .c-est-quoi a{
+        font-size: 1.2em;
+    }
+    
+    .c-est-quoi a:hover{
+        text-decoration: none;
+    }
+  
+}
+
+@media screen and (min-width:782px) {
+   .c-est-quoi{
+       width: 80%;
+   }
+}
+
+@media screen and (min-width: 1200px){
+    .c-est-quoi{
+        width: 60%;
+    }
+}

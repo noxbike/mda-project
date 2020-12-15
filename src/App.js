@@ -1,35 +1,49 @@
 import React from 'react';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import Navbar from './component/Navbar';
-import './App.css';
-import Accueil from './component/Accueil';
-import Contact from './component/Contact';
+import ScrollToTop from './component/ScrollToTop';
+import NavbarMobile from './component/NavbarMobile';
+import Authentification from './component/authentification/Authentification';
 import Footer from './component/Footer';
-import CestQuoi from './component/CestQuoi';
-import Login from './component/Login';
-import Services from './component/Services';
-import Postulez from './component/postulez';
-import Mission from './component/Mission';
-import FormulaireServices from './component/FormulaireServices';
+import Routes from './routes/Index.js';
+import './App.css';
+
+const RenderRoute = (route) => {
+    if( route.needsAuth === true ){
+      return(
+        <Route 
+        exact 
+        path={route.path} 
+        render={(props) => ( Authentification() ? <route.component {...props} /> : <Redirect to='/login' /> )}></Route>
+      );
+    }
+    return(
+      <Route 
+      exact
+      path={route.path}
+      render={(props) => <route.component {...props} />}></Route>
+    );
+}
 
 function App() {
-  return (
-    <div className="App">
-      <BrowserRouter>
-        <Navbar/>
-        <div id='content'>
-          <Route exact path='/' component={ Accueil } />
-          <Route path='/contact' component={ Contact } />
-          <Route path='/services' component={ Services } />
-          <Route path='/c-est-quoi' component={ CestQuoi } />
-          <Route path='/login' component={ Login } />
-          <Route path='/postuler' component={ Postulez } />
-          <Route path='/mission' component={ Mission } />
-          <Route path='/reservation' component={ FormulaireServices } />
-        </div>
-      </BrowserRouter>
-      <Footer/>
-    </div>
+    return (
+      <div className="App">
+        <BrowserRouter>
+          <ScrollToTop/>
+          {Authentification() ?
+            <div><NavbarMobile/>
+            <Navbar/></div>: ''}
+            <div id='content'>
+                {
+                  Routes.map((route, index) =>
+                    <RenderRoute {...route} key={index} />
+                  )
+                }
+            </div>
+            {Authentification() ?
+            <Footer/>: ''}
+        </BrowserRouter>
+      </div>
   );
 }
 

@@ -1,35 +1,40 @@
-import React, { Component } from 'react'
-import { Link } from 'react-router-dom';
-import './services.css';
+import React, { useState, useEffect } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import  {faChalkboardTeacher, faHeadset, faHandsHelping, faChild, faPrint, faUserTie, faBuilding, faFolderOpen, faChartPie} from '@fortawesome/free-solid-svg-icons'
+const localhost = require('../component/config.json');
 
-export default class Services extends Component {
-    render() {
-        return (
-            <div id='services'>
-                <div>
-                    <div className='mb-4'>
-                        <h1>Mise à disposition de bureaux</h1>
-                        <p>
-                            Des bureaux équipés (ordinateur, téléphone...) peuvent être mis temporairement et gratuitement à la disposition des associations adhérentes pour des rendez-vous, des permanences associatives selon disponibilité.
-                        </p>
+
+export default function Services() {
+    const[ service, setService ] = useState([]);
+    const tab = [ faChalkboardTeacher, faHeadset, faHandsHelping, faChild, faPrint, faUserTie, faBuilding, faFolderOpen, faChartPie ];
+    useEffect(() => {
+        fetch(`http://${ localhost.localhost }/api/services/`,{
+            method:'GET',
+            headers:{
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then((data) => setService(data.servicesFound))
+    },[])
+
+    const getSqlPresentation = (message) => {
+        return{ __html: `${ message }` }
+    };
+
+    return (
+        <div className='container row justify-content-center ml-auto mr-auto col-md-12 p-0 m-0' style={{maxWidth:'1190px'}}>
+            {
+                service.map(item =>
+                    <div className = 'card' key={ item.id }>
+                        <div className='text-center mt-auto mb-auto'>
+                            <FontAwesomeIcon icon={ tab[ item.icon ] } style={{color:`${ item.color }`}}/>
+                            <h6><strong>{ item.titre }</strong></h6>
+                            <div className='presentation-services text-left' dangerouslySetInnerHTML={getSqlPresentation(item.body)}></div>
+                        </div>
                     </div>
-                    <div className='mb-4'>
-                        <h1>Mise à disposition de salle de réunion</h1>
-                        <p>
-                            Une salle de réunion équipée en matériel technique (Tableau blanc, paperboard, vidéoprojecteur, sonorisation, tables, chaises...) est mise temporairement et gratuitement à disposition des associations adhérentes pour les réunions statutaires, les formations...
-                        </p>
-                    </div>
-                    <div className='mb-4'>
-                        <h1>Mise à disposition de la salle d'activités</h1>
-                        <p>
-                            Une salle de 110m2 de surface au sol pour vos conférences, expositions, stages, colloques et activités ponctuelles est à la disposition gratuite des associations adhérentes.
-                        </p>
-                    </div>
-                    <div className='reservation'>
-                        <Link to='/reservation' href="#">Réserver</Link>
-                    </div>
-                </div>
-            </div>
-        )
-    }
+                )
+            }
+        </div>
+    )
 }

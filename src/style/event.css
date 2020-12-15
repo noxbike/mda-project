@@ -1,0 +1,61 @@
+
+#events h2{
+    border-left: 8px solid #932724;
+    padding-left: 1%;
+}
+
+#events .cart{
+  min-width: 230px;
+  max-width: 264px;
+  width: 40%;
+  height: 320px;
+  padding: 0px;
+  border: 1px solid rgb(187, 187, 187);
+  box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.26);
+}
+
+#events .fontAwesomeEvent{
+  color:   #c03733;
+}
+
+#events #bloc{
+  font-family: sans-serif;
+  text-align: left;
+  color: white;
+  transform: skewX(-25deg);
+  margin-left: 0.8%;
+}
+
+#events #bloc span{
+  font-size:1.5em;
+  background-color: #f44336;
+  padding: 0px 2% 1% 2%;
+}
+
+#events #bloc{
+  padding: 0px;
+  border-bottom: 4px solid #f44336;
+}
+
+#events .autre-evenement{
+  padding: 4% 0% 4% 0%;
+}
+
+#events .autre-evenement a:hover{
+  cursor: pointer;
+  text-decoration: none;
+  color:#932724;
+}
+
+  @media screen and (min-width: 300px){
+    #events .cart .face2{
+      height: 20%;
+      width: 100%;
+      background-color: white;
+    }
+  }
+
+  @media screen and (min-width:571px){
+    #events {
+    }
+  }

@@ -1,0 +1,149 @@
+#services .banniere{
+    background-image: url('../component/image/service.jpg');
+    background-size: cover;
+    background-position: 70% 30%;
+    color:white;
+    padding:0%
+}
+
+#services .banniere .caption{
+    background-color: rgba(0, 0, 0, 0.151);
+    height: 100%;
+    width: 100%;
+    padding: 5%;
+}
+
+#services .presentation-services p, #services .presentation-services{
+    color: #8b8a8a;
+    font-size: 0.4em;
+    transition: 500ms
+}
+
+
+#services .card{
+    box-shadow: 1px 1px 25px rgba(0,0,0,.2);
+    padding: 1%;
+    width:31%;
+    height:350px!important;
+    margin:10px;
+    min-width: 260px;
+
+    font-size: 2em;
+}
+
+#services .card h6{
+    width:100%;
+}
+
+#services .salle{
+    background-color: white;
+    padding: 0px;
+}
+
+#services .salle .header{
+    width: 100%;
+}
+
+#services .salle .body{
+    font-size: 0.9em;
+    text-align: center;
+    color: white;
+}
+
+#services .salle1{
+    background-color: #82ca9c;
+}
+
+#services .salle2{
+    background-color: #8e8e8e;
+}
+
+#services .salle3{
+    background-color: #fdc689;
+}
+
+
+@media screen and (min-width: 319px){
+
+    #services .bloc-salle{
+        width:85%;
+        margin-right: auto;
+        margin-left: auto;
+        font-size: 0.8em;
+    }
+
+    #services .salle{
+        margin-bottom: 20px;
+    }
+
+    #services .image-salle img{
+        width:100%;
+        height:100%;
+    }
+
+    #services .salle .body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media screen and (min-width: 571px){
+    #services .bloc-salle{
+        width: 90%;
+        height: 100%;
+    }
+
+    #services .salle{
+        margin-bottom: 0px;
+        display:flex;
+        flex-direction: row;
+        margin-bottom: none;
+    }
+    
+    #services .salle .body,
+    #services .salle .image-salle{
+        width:50%;
+    }
+
+    #services .salle2{
+        flex-direction: row-reverse;
+    }
+}
+
+
+@media screen and (min-width: 767px){
+    #services .bloc-salle{
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+
+    #services .salle{
+        flex-direction: column;
+    }
+
+    #services .salle2{
+        flex-direction: column-reverse;
+    }
+
+    #services .salle .body,
+    #services .salle .image-salle{
+        width:100%;
+        height:50%;
+    }
+}
+
+@media screen and (min-width: 991px){
+    #services .bloc-salle{
+    height: 500px;
+}
+}
+
+@media screen and (min-width: 1200px){
+    #services .bloc-salle{
+       
+       max-width: 1179px;
+    }
+}

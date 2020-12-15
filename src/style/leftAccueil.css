@@ -1,0 +1,100 @@
+.embed-responsive{
+    box-shadow: 2px 4px 16px gray;
+}
+
+.video #bloc{
+    font-family: sans-serif;
+    text-align: left;
+    color: white;
+    transform: skewX(-25deg);
+}
+  
+.video #bloc span{
+    font-size:1.5em;
+    background-color: #0e7dd8;
+    padding: 0px 2% 1.2% 2%;
+}
+  
+.video #bloc{
+    padding:0px;
+    border-bottom: 4px solid#0e7dd8;
+}
+
+.autre-video{
+    padding: 1% 0% 4% 0%;
+    z-index: 2;
+}
+
+.autre-video a{
+    color:black;
+    text-decoration: none;
+}
+
+.autre-video a:hover{
+    color:#932724;
+}
+
+@media screen and (max-width: 440px) {
+    .facebook-480, .facebook-380{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 480px) {
+    .facebook-320, .facebook-380{
+        display:none;
+    }
+
+    .facebook-480{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 768px) {
+
+    .facebook-480{
+        display: block;
+    }
+
+    .facebook-320, .facebook-380{
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .facebook-480, .facebook-380{
+        display: none;
+    }
+
+    .facebook-320{
+        display: block;
+    }
+
+    .leftAccueil{
+        justify-content: start;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .video{
+        max-height: 303px;
+    }
+
+    .facebook-320, .facebook-480{
+        display:none;
+    }
+
+    .facebook-380{
+        display:none;
+    }
+}
+
+@media screen and (min-width: 1600px) {
+    .facebook-320{
+        display:block;
+    }
+
+    .facebook-480, .facebook-380{
+        display: none;
+    }
+}

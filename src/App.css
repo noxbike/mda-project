@@ -1,6 +1,32 @@
-body {
+@import "../node_modules/@syncfusion/ej2-base/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-buttons/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-calendars/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-dropdowns/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-inputs/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-lists/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-navigations/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-popups/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-react-schedule/styles/material.css";
+
+html, body {
+  height: 100vh;
   margin: 0px;
+  padding:0px;
   font-family: Arial, Helvetica, sans-serif;
+}
+
+.App #content{
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.App footer {
+  position:absolute;
+  bottom: 0;
+  right:0;
+  left:0;
+  width:100%;
 }
 
 .animate__animated.animate__bounceInLeft, 
@@ -16,8 +42,7 @@ a {
 }
 
 .sousCarousel{
-  margin: 0px;
-  align-items: center;
+  margin-top: 5%;
   justify-content: center;
   margin-left: auto;
   margin-right: auto;
@@ -25,19 +50,20 @@ a {
 
 .sousCarousel .row{
   justify-content: center;
-  margin: 0px;
 }
 
-@media screen and(min-width: 1260px) {
-  .sousCarousel .row{
-    justify-content: space-between;
+@media screen and  (min-width: 319px){
+  .App{
+    min-height:100vh;
+    height:100%;
+    position: relative;
+    padding-bottom:340px;
   }
 }
 
-@media screen and (min-width: 1600px) {
-  .sousCarousel .row{
-    width:130%; 
-    margin-left:-15%; 
-    justify-content: space-between;
+@media screen and (min-width: 989px){
+  .App{
+    padding-bottom:201px;
   }
 }
+

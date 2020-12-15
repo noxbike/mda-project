@@ -1,177 +1,107 @@
 import React, { Component } from 'react';
-import './article.css';
+import '../style/article.css';
+import Moment from 'moment';
+import 'moment/locale/fr';
+import SkeletonArticle from './skeleton/skeletonArticle';
+import SkeletonArticle2 from './skeleton/SkeletonArticle2';
+import SkeletonElement from './skeleton/SkeletonElement';
+const localhost = require('./config.json');
+Moment.locale('fr');
 
 export default class Article2 extends Component {
+
+    constructor(props){
+        super(props);
+        this.state = {
+            firstArticle: null,
+            topArticles: null
+        }
+    }
+
+    componentDidMount(){
+        fetch(`http://${ localhost.localhost }/api/articles`,{
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(data => this.setState({ topArticles:data.articleAccueil, firstArticle: data.firstArticle }))
+    }
+
+    time(date){
+        date= new Date(date);
+        date = Moment(date).format("Do MMM YYYY");
+        return date;
+    }
+
     render(){
+        const { firstArticle, topArticles } = this.state;
         return (
-            <div className='articles col-12 col-md-12 col-lg-8'>
-                <h2 class="label-actualite font-weight-bold mb-4 pb-2">Actualités</h2>
-                <div class="container container-articles mt-5">
+            <div className='articles col-md-12 col-lg-7'>
+          <div className='container'>
+            
+          <div className='row d-flex justify-content-around'>
+                {firstArticle && firstArticle.map(item =>
+                    <div key={item.id} className='article row col-12  col-sm-10 col-md-12 mb-4'>
+                        
+                        <div className='paper-article'></div>
 
-                    <section class="col-md-5 col-lg-12 dark-grey-text">
-
-                        <div class=" article row align-items-center">
-
-                            <div class="col-12 col-lg-5 col-xl-4">
-
-                                <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-                                    <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg" alt="Sample image" />
-                                    <a>
-                                        <div class="mask rgba-white-slight"></div>
-                                    </a>
+                        <div className='col-md-6' style={{padding:'0px'}}>
+                            <div className='image-article' style={{backgroundImage:`url(${item.photo})`}}>
+                                <div className='date'>
+                                    <p className='col-sm'>{this.time(item.createdAt)}</p>
                                 </div>
-
                             </div>
-
-                            <div class="col-12 col-lg-7 col-xl-8">
-
-                                <h4 class="font-weight-bold mb-3"><strong>Title of the news</strong></h4>
-
-                                <p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
-                                quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus
-                                et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.</p>
-
-                                <p>by <a class="font-weight-bold">Jessica Clark</a>, 19/04/2018</p>
-
-                            </div>
-
                         </div>
 
-                        <hr class="my-5" />
-
-                    </section>
-                    <section class=" col-md-5 col-lg-12 dark-grey-text">
-
-                        <div class=" article row align-items-center">
-
-                            <div class="col-12 col-lg-5 col-xl-4">
-
-                                <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-                                <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg" alt="Sample image" />
-                                <a>
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                                </div>
-
+                        <div className='article-body d-flex flex-column justify-content-between col-md-6'>
+                            <div className='mt-2'>
+                                <h4><strong>{item.titre}</strong></h4>
                             </div>
-
-                            <div class="col-12 col-lg-7 col-xl-8">
-
-                                <h4 class="font-weight-bold mb-3"><strong>Title of the news</strong></h4>
-
-                                <p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
-                                quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus
-                                et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.</p>
-
-                                <p>by <a class="font-weight-bold">Jessica Clark</a>, 19/04/2018</p>
-
+                                
+                            <div className='article-bottom row'>
+                                <p className='col-sm'>by {item.auteur}</p>
+                                <p className='tag col-sm'>#categorie</p>
                             </div>
-
                         </div>
 
-                        <hr class="my-5" />
+                    </div>
+                )}
+                {!firstArticle && [1].map(item => <SkeletonArticle key={item} />)}
 
-                    </section>
-                    <section class="col-md-5 col-lg-12 dark-grey-text">
+                <div className='row col-lg-12 justify-content-around justify-content-md-between'>
+                {topArticles && topArticles.map(item =>
+                    <div key={item.id} className='article2 row col-12 col-sm-10 col-md-5 mb-4'>
 
-                        <div class=" article row align-items-center">
+                        <div className='paper-article'></div>
 
-                            <div class="col-12 col-lg-5 col-xl-4">
-
-                                <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-                                <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg" alt="Sample image" />
-                                <a>
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
+                        <div className='col-12 col-md-12' style={{padding:'0px'}}>
+                            <div className='image-article' style={{backgroundImage:`url(${item.photo})`}}>
+                                <div className='date'>
+                                    <p className='col-sm'>{this.time(item.createdAt)}</p>
                                 </div>
-
                             </div>
-
-                            <div class="col-12 col-lg-7 col-xl-8">
-
-                                <h4 class="font-weight-bold mb-3"><strong>Title of the news</strong></h4>
-
-                                <p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
-                                quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus
-                                et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.</p>
-
-                                <p>by <a class="font-weight-bold">Jessica Clark</a>, 19/04/2018</p>
-
-                            </div>
-
                         </div>
 
-                        <hr class="my-5" />
-
-                    </section>
-
-                    <section class="col-md-5 col-lg-12 dark-grey-text">
-
-                        <div class=" article row align-items-center">
-
-                            <div class="col-12 col-lg-5 col-xl-4">
-
-                                <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-                                <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg" alt="Sample image" />
-                                <a>
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                                </div>
-
+                        <div className='article-body col-12 col-md-12'>
+                            <h4 className='pt-2 pb-2'><strong>{item.titre}</strong></h4>
+                            <div className='article-bottom row'>
+                                <p className='col-sm'>by {item.auteur}</p>
+                                <p className='tag col-sm'>#categorie</p>
                             </div>
-
-                            <div class="col-12 col-lg-7 col-xl-8">
-
-                                <h4 class="font-weight-bold mb-3"><strong>Title of the news</strong></h4>
-
-                                <p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
-                                quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus
-                                et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.</p>
-
-                                <p>by <a class="font-weight-bold">Jessica Clark</a>, 19/04/2018</p>
-
-                            </div>
-
                         </div>
 
-                        <hr class="my-5" />
-
-                    </section>
-
-                    <section class="col-md-5 col-lg-12 dark-grey-text">
-
-                        <div class=" article row align-items-center">
-
-                            <div class="col-12 col-lg-5 col-xl-4">
-
-                                <div class="view overlay rounded z-depth-1-half mb-lg-0 mb-4">
-                                <img class="img-fluid" src="https://mdbootstrap.com/img/Photos/Others/images/49.jpg" alt="Sample image" />
-                                <a>
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                                </div>
-
-                            </div>
-
-                            <div class="col-12 col-lg-7 col-xl-8">
-
-                                <h4 class="font-weight-bold mb-3"><strong>Title of the news</strong></h4>
-
-                                <p class="dark-grey-text">Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit
-                                quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus
-                                et aut officiis cum soluta nobis est eligendi placeat facere aut rerum.</p>
-
-                                <p>by <a class="font-weight-bold">Jessica Clark</a>, 19/04/2018</p>
-
-                            </div>
-
-                        </div>
-
-                    </section>
-
-
+                    </div>
+                )}
+                {!topArticles && [1,2].map(item => <SkeletonArticle2 key={item} />)}
                 </div>
             </div>
+            <div className='autre-article'>
+              {!topArticles ? <SkeletonElement type='title'/> : <a href='#'>+ Tout les articles</a>}
+            </div>
+          </div>
+        </div>
         )
     }
 }

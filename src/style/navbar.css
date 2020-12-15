@@ -1,0 +1,142 @@
+nav{
+  z-index: 2000;
+  background-color: white;
+  box-shadow: 0px 0px 16px;
+  padding: 0;
+}
+
+.logo-top-none{
+  transition-delay: 100ms;
+  transition:500ms;
+}
+
+.logo-top{
+  transition:500ms;
+}
+
+.middle-navbar{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.showtext{
+  margin-top: 0px;
+  width:70%;
+  transition-delay: 100ms;
+  transition:900ms;
+}
+
+.hiddentext{
+  width:70%;
+  margin-top: -90px;
+  transition:1200ms
+}
+
+.dropdown {
+  display:none;
+  position: absolute;
+  padding-left: 0px;
+}
+
+.dropdown li{
+  background-color: white;
+  width: 100%;
+  padding: 5px 40px 5px 40px;
+}
+
+.dropdown ul{
+  border: 1px solid rgb(128, 128, 128);
+}
+
+.dropdown li:hover{
+  background-color: rgb(245, 245, 245);
+}
+
+.services:hover .dropdown-services,
+.service-civique:hover .dropdown-service-civique,
+.Associations:hover .dropdown-Associations {
+  display: block;
+  padding-top: 15px;
+}
+
+nav li .dropdown li:first-child{
+  border-top: 4px solid #932724;
+}
+
+nav li a:hover,nav a:focus {
+  text-decoration: none;
+  color: #932724!important;
+  cursor: pointer;
+}
+
+nav ul{
+  list-style: none;
+  padding: 0px;
+}
+
+
+
+@media screen and (min-width: 768px){
+  .nav-facebook{
+    width:23px;
+    margin-left: 5%;
+  }
+  .contain-logo{
+    width: 20%;
+  }
+
+  nav .login-bar{
+    text-align: right;
+    font-size: 0.9em;
+    padding-top: 2%;
+    width: 15%;
+  }
+
+  .middle-navbar{
+    width: 60%;
+  }
+
+  .logo-top-none{
+    width:35%;
+  }
+
+  .logo-top{
+    width:25%;
+  }
+}
+
+@media screen and (min-width: 991px){
+  nav .login-bar{
+    font-size: 1em;
+    padding-top: 0.6%;
+  }
+
+  .logo-top-none{
+    width:35%;
+  }
+
+  .logo-top{
+    width:25%;
+  }
+
+  .contain-logo{
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 1200px){
+  nav .login-bar{
+    padding-top: 0.6%;
+    width:20%;
+  }
+
+  .middle-navbar{
+    width: 50%;
+  }
+
+  .contain-logo{
+    display: flex;
+    justify-content: right;
+  }
+}

@@ -1,7 +1,42 @@
 import React, { Component } from 'react';
-import './contact.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import  { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
+import '../style/contact.css';
+const localhost = require('./config.json');
 
 export default class Contact extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            email:'',
+            association:'',
+            message:'',
+            numero:'',
+            nom:'',
+            prenom:''
+        }
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    handleSubmit(e){
+       fetch(`http://${ localhost.localhost }/api/contact`,{
+           method:'POST',
+           body: JSON.stringify({
+               'email':this.state.email,
+               'association':this.state.association,
+               'message':this.state.message,
+               'numero':this.state.numero,
+               'nom':this.state.nom,
+               'prenom':this.state.prenom
+           }),
+           headers:{
+               'Content-Type': 'application/json'
+           }
+       })
+       .then(res => res.json())
+       .then((result) => { })
+    }
+
     render(){
         return(
             <div className='contact'>
@@ -10,125 +45,100 @@ export default class Contact extends Component {
                     </div>
                 </div>
                 <div className='formulaire-contact'>
-                    <div class="container my-5">
+                    <div className="container my-5">
                         <div className='row top-contact'>
-                            <div className='col-md-12 col-lg-8'>
-                                <h1>Contactez-nous</h1>
+                            <div className='col-md-12 col-lg-8 col-xl-8'>
+                                <h1>Rejoignez nous</h1>
                             </div>
                             <div className='row col-md-12 col-lg-4'>
                                 <div className='col-12 col-md-2 col-lg-2'>
-                                    <i class="fa fa-clock-o" style={{fontSize: '2em'}} aria-hidden="true"></i>
+                                    <i className="fa fa-clock-o" style={{fontSize: '2em'}} aria-hidden="true"></i>
                                 </div>
-                                <ul className='col-6 col-md-4 col-lg-4'>
-                                    <li><strong>Lundi :</strong></li>
-                                    <li><strong>Mardi :</strong></li>
-                                    <li><strong>Mercredi :</strong></li>
-                                    <li><strong>Jeudi :</strong></li>
-                                    <li><strong>Vendredi :</strong></li>
-                                </ul>
-                                <ul className='col-6 col-md-5 col-lg-5'>
-                                    <li>8h-12h 13h-17h</li>
-                                    <li>8h-12h 13h-17h</li>
-                                    <li>8h-12h 13h-17h</li>
-                                    <li>8h-12h 13h-17h</li>
-                                    <li>8h-12h 13h-17h</li>
-                                </ul>
+                                <p className='text-center'>Du Lundi au Vendredi <br/>de<br/> 8h à 12h et 13h à 17h</p>
                             </div>
                         </div>
-                        <section class="contact-section dark-grey-text mb-5">
-                            <div class="card">
-                                <div class="row">
-                                    <div class="col-lg-8">
-                                        <div class="card-body form">
-                                            <h5 class="label-formulaire font-weight-bold dark-grey-text mt-4">Message</h5>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="md-form mb-0">
-                                                        <input type="text" id="form-contact-name" class="form-control" placeholder='Nom'/>
+                        <section className="contact-section dark-grey-text mb-5">
+                            <div className="card">
+                                <div className="row">
+                                    <div className="col-lg-8">
+                                        <div className="card-body form">
+                                            <p className='label-contact'>Votre message</p>
+                                            <form onSubmit={this.handleSubmit}>
+                                            <div className="row">
+                                                <div className="col-md-6">
+                                                    <div className="md-form mb-0">
+                                                        <input type="text" id="form-contact-name" className="form-control" onChange={(e) => this.setState({nom: e.target.value})} placeholder='Nom'/>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                <div class="md-form mb-0">
-                                                        <input type="text" id="form-contact-name" class="form-control" placeholder='Prénom'/>
+                                                <div className="col-md-6">
+                                                <div className="md-form mb-0">
+                                                        <input type="text" id="form-contact-name" className="form-control" onChange={(e) => this.setState({prenom: e.target.value})} placeholder='Prénom'/>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="md-form mb-0">
-                                                        <input type="text" id="form-contact-phone" class="form-control" placeholder='Télephone'/>
+                                            <div className="row">
+                                                <div className="col-md-6">
+                                                    <div className="md-form mb-0">
+                                                        <input type="text" id="form-contact-phone" className="form-control" onChange={(e) => this.setState({numero: e.target.value})} placeholder='Télephone'/>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
-                                                    <div class="md-form mb-0">
-                                                        <div class="md-form mb-0">
-                                                            <input type="text" id="form-contact-email" class="form-control" placeholder='Email' />
+                                                <div className="col-md-6">
+                                                    <div className="md-form mb-0">
+                                                        <div className="md-form mb-0">
+                                                            <input type="text" id="form-contact-email" className="form-control" onChange={(e) => this.setState({email: e.target.value})} placeholder='Email' />
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="md-form mb-0">
-                                                        <input type="text" id="form-contact-name" class="form-control" placeholder='Association'/>
+                                            <div className="row">
+                                                <div className="col-md-6">
+                                                    <div className="md-form mb-0">
+                                                        <input type="text" id="form-contact-name" className="form-control" onChange={(e) => this.setState({association: e.target.value})} placeholder='Association'/>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-6">
+                                                <div className="col-md-6">
                                                 </div>
                                             </div>
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="md-form mb-0">
-                                                        <textarea id="form-contact-message" class="form-control md-textarea" rows="9" placeholder='Message'></textarea>
-                                                        <button type="button" class="btn btn-outline-secondary" style={{marginTop:'2%'}} data-toggle="button" aria-pressed="false" autocomplete="off">
-                                                            Envoyer <i class="far fa-paper-plane fa"></i>
+                                            <div className="row">
+                                                <div className="col-md-12">
+                                                    <div className="md-form mb-0">
+                                                        <textarea id="form-contact-message" className="form-control md-textarea" rows="9" placeholder='Message' onChange={(e) => this.setState({message: e.target.value})}></textarea>
+                                                        <button type="submit" className="btn btn-outline-secondary" style={{marginTop:'2%'}} data-toggle="button" aria-pressed="false" autoComplete="off">
+                                                            Envoyer <FontAwesomeIcon icon={faPaperPlane}/>
                                                         </button>
                                                     </div>
                                                 </div>
-
                                             </div>
+                                            </form>
                                         </div>
                                     </div>
-                                    <div class="col-lg-4 contact-information">
-                                        <div class="card-body contact text-center h-100 white-text">
-                                            <h5 class="font-weight-bold my-4 pb-2">Contact information</h5>
-                                            <ul class="text-lg-left list-unstyled ml-4">
+                                    <div className="col-lg-4 contact-information">
+                                        <div className="card-body contact text-center h-100 white-text">
+                                            <h5 className="font-weight-bold my-4 pb-2">Contact information</h5>
+                                            <ul className="text-lg-left list-unstyled ml-4">
                                                 <li>
-                                                    <p><i class="fas fas fa-map-marker fa pr-2"></i>6 rue Le Corbusier - Bras-Fusil - BP102
+                                                    <p><i className="fas fas fa-map-marker fa pr-2"></i>6 rue Le Corbusier - Bras-Fusil - BP102
                                                     97470 Saint-Benoît</p>
                                                 </li>
                                                 <li>
-                                                    <p><i class="fas fa-phone fa pr-2"></i>02 62 41 34 04</p>
+                                                    <p><i className="fas fa-phone fa pr-2"></i>02 62 41 34 04</p>
                                                 </li>
                                                 <li>
-                                                    <p><i class="fas fa-print fa pr-2"></i>02 62 41 67 14</p>
+                                                    <p><i className="fas fa-print fa pr-2"></i>02 62 41 67 14</p>
                                                 </li>
                                                 <li>
-                                                    <p><i class="fas fa-envelope fa pr-2"></i>mda-saintbenoit@orange.fr</p>
+                                                    <p><i className="fas fa-envelope fa pr-2"></i>mda-saintbenoit@orange.fr</p>
                                                 </li>
                                             </ul>
-                                            <ul class="list-inline text-center list-unstyled">
-                                            <li class="list-inline-item">
-                                                    <a class="p-2 fa-lg fb-ic">
-                                                        <i class="fab fa-facebook-f fa"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a class="p-2 fa-lg tw-ic">
-                                                        <i class="fab fa-twitter fa"></i>
-                                                    </a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a class="p-2 fa-lg li-ic">
-                                                        <i class="fab fa-linkedin fa"> </i>
-                                                    </a>
-                                                </li>
-                                                <li class="list-inline-item">
-                                                    <a class="p-2 fa-lg ins-ic">
-                                                        <i class="fab fa-instagram fa"> </i>
-                                                    </a>
-                                                </li>
-                                            </ul>
+                                            <div className='text-left'>
+                                                <ul className='list-unstyled ml-4'>
+                                                    <li>
+                                                        <a href='https://www.facebook.com/pg/MDAdeStBenoit/posts/' target='__blank' className='text-left'>
+                                                            <i className="fab fa-facebook-f fa"></i>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

@@ -1,0 +1,103 @@
+#dropzone{
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 3px dashed rgba(128, 128, 128, 0.253);
+    background-color: rgba(148, 148, 148, 0.37);
+    box-shadow: 0px 0px 16px rgba(128, 128, 128, 0.212);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 120px;
+    outline: none;
+}
+
+#dragndrop .label-file{
+    font-weight: 800;
+    text-align: center;
+    width:300px;
+    color: rgb(114, 114, 114);
+}
+
+#dragndrop .btn-parcourir:hover{
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#dragndrop .btn-parcourir{
+    text-decoration: none;
+    outline: none;
+    border:none;
+    font-weight: 600;
+    background-color: rgb(84, 152, 253);
+    padding: 2% 4% 2% 4%;
+    color: white;
+}
+
+#dragndrop{
+    margin-right: auto;
+    margin-left: auto;
+}
+
+#dragndrop li{
+    width:100%;
+    font-size: 1em;
+}
+
+#dragndrop .trash:hover{
+    color: rgb(147,39,36);
+    cursor: pointer;
+}
+
+#dragndrop ul{
+    padding:0px;
+    width:300px;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+#dragndrop li img{
+    width:35px;
+}
+
+#dropzone .right{
+    color: green;
+}
+
+#dropzone .danger, #dragndrop .warning{
+    color:red;
+    padding: 2%;
+    text-align: center;
+    width:300px;
+}
+
+#dragndrop .bar {
+    background-color: rgb(173, 173, 173);
+    width: 100%;
+    height:6px; 
+}
+
+#dragndrop .progress{
+    background-color: rgba(2, 255, 2, 0.541);
+    height:6px;
+}
+
+#dragndrop .file{
+    background-color: white;
+    font-size: 1em;
+    width:300px;
+}
+
+#dragndrop .file-info p{
+    color:rgb(109, 109, 109);
+    font-weight: 540;
+    margin-top: auto;
+    margin-bottom: auto;
+    width:150px;
+}
+
+#dragndrop .loading-file, #dragndrop .loading-file p{
+    width: 170px;
+}

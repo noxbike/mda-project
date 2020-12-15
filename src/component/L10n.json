@@ -1,0 +1,28 @@
+{
+    "fr-CH":{
+        "schedule":{
+            "saveButton": "Enregistrer",
+            "day": "Jour",
+            "today": "Aujourd'hui",
+            "week": "Semaine",
+            "month": "Mois",
+            "close": "Fermer",
+            "cancel": "Annuler",
+            "delete": "Supprimer",
+            "edit": "Modifier",
+            "cancelButton": "Annuler",
+            "deleteButton": "Supprimer",
+            "startTimezone": "Date de début",
+            "endTimezone": "Date de fin",
+            "start": "Début",
+            "end": "Fin",
+            "more": "Plus",
+            "previous": "Précédent",
+            "next": "Suivant",
+            "newEvent": "Réservation",
+            "addTitle": "Réservation",
+            "moreDetails": "Plus de détails",
+            "save": "Enregistrer"
+        }
+    }
+}

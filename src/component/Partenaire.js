@@ -1,23 +1,36 @@
 import React, { Component } from 'react';
-import './partenaire.css';
-import VilleStBenoit from './logo/ville de saint benoit-logo.png';
-import Djscs from './logo/djscs-logo.png';
-import Crajep from './logo/crajep-logo.jpg';
-import ServiceCivique from './logo/service civique-logo.jpg';
-import CaseALire from './logo/case à lire-logo.png';
-import Rnma from './logo/Rnma.gif';
+import '../style/partenaire.css';
+import localhost from './config.json';
+import SkeletonElement from './skeleton/SkeletonElement';
 
 export default class Partenaire extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            data: null
+        }
+    }
+    componentDidMount(){
+        fetch(`http://${localhost.localhost}/api/partenaire`,{
+            method: 'GET',
+            headers: {
+                'Content-Type':'application/json'
+            }
+        })
+        .then(res => res.json())
+        .then(data => this.setState({data: data.partenaireFound}))
+    }
+
     render(){
+        const { data } = this.state;
         return(
-            <div className='partenaire'>
-                <ul>
-                    <li><a href='https://www.saint-benoit.re/' target='_blank'><img className='img-fluid' src={ VilleStBenoit } alt='ville-de-saint-benoit' width='150px'/></a></li>
-                    <li><a href='http://reunion.drjscs.gouv.fr/' target='_blank'><img className='img-fluid' src={ Djscs } alt='Djscs-réunion' width='150px'/></a></li>
-                    <li><a href='http://www.cnajep.asso.fr/crajep/crajep-reunion/' target='_blank'><img className='img-fluid' src={ Crajep } alt='Crajep-réunion' width='150px'/></a></li>
-                    <li><a href='https://www.service-civique.gouv.fr/' target='_blank'><img className='img-fluid' src={ ServiceCivique } alt='Service-civique' width='150px'/></a></li>
-                    <li><a href='#'><img className='img-fluid' src={ CaseALire } alt='Case-à-lire' width='150px'/></a></li>
-                    <li><a href='https://www.maisonsdesassociations.fr/' target='_blank'><img className='img-fluid' src={ Rnma } alt='Rnma' width='100px'/></a></li>
+            <div className='partenaire col-sm-11 col-md-10 col-lg-9 col-xl-8'>
+                <ul className='row col-12 d-flex justify-content-around'>
+                    {
+                       data && data.map(item => 
+                            <li key={item.id}><a target='_blank' rel="noopener noreferrer" href={item.lien}><img className='img-fluid' src={ item.image } alt={item.nom} width='100px'/></a></li>)
+                    }
+                    {!data && [1,2,3,4,5,6].map(item => <SkeletonElement type='image' className='loader' />)}
                 </ul>
             </div>
         )

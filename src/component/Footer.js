@@ -1,41 +1,36 @@
 import React, { Component } from 'react';
-import './footer.css';
+import { Link } from 'react-router-dom';
+import '../style/footer.css';
 
 export default class Footer extends Component{
     render(){
         return(
-            <footer class="page-footer font-small indigo">
+            <footer className="page-footer font-small indigo bt-0">
 
-            <div class="container">
-            <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+            <div className="container">
+            <div className="row text-center d-flex justify-content-center pt-5 mb-3">
 
-                  <div class="col-md-2 mb-3">
-                    <h6 class="text-uppercase font-weight-bold">
-                      <a href="#!">Qui sommes-nous</a>
+                  <div className="col-md-2 mb-3">
+                    <h6 className="text-uppercase font-weight-bold">
+                      <Link to='/qui-somme-nous'>Qui sommes-nous</Link>
                     </h6>
                   </div>
 
-                  <div class="col-md-2 mb-3">
-                    <h6 class="text-uppercase font-weight-bold">
-                      <a href="#!">Associations</a>
+                  <div className="col-md-2 mb-3">
+                    <h6 className="text-uppercase font-weight-bold">
+                      <Link to='/faq'>FAQ</Link>
                     </h6>
                   </div>
 
-                  <div class="col-md-2 mb-3">
-                    <h6 class="text-uppercase font-weight-bold">
-                      <a href="#!">FAQ</a>
-                    </h6>
-                  </div>
-
-                  <div class="col-md-2 mb-3">
-                    <h6 class="text-uppercase font-weight-bold">
+                  <div className="col-md-2 mb-3">
+                    <h6 className="text-uppercase font-weight-bold">
                       <a href="#!">Aide</a>
                     </h6>
                   </div>
 
-                  <div class="col-md-2 mb-3">
-                    <h6 class="text-uppercase font-weight-bold">
-                      <a href="#!">Contact</a>
+                  <div className="col-md-2 mb-3">
+                    <h6 className="text-uppercase font-weight-bold">
+                      <Link to='/contact'>Contact</Link>
                     </h6>
                   </div>
 
@@ -43,8 +38,8 @@ export default class Footer extends Component{
 
               </div>
 
-              <div class="footer-copyright text-center py-3">© 2020 Copyright:
-                <a href="https://mdbootstrap.com/"> MDA Saint-Benoit</a>
+              <div className="footer-copyright text-center py-3">
+                <a href="https://mdbootstrap.com/"> MDA Saint-Benoit | 6 rue Le Corbusier - Bras-Fusil - BP102 97470 Saint-Benoît | 02 62 41 67 14</a>
               </div>
 
             </footer>

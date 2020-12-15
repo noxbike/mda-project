@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import './serviceCivique.css';
-import logoServiceCivique from './logo/ServiceCivique_faiteslesaut.png';
+import '../style/serviceCivique.css';
+import logoServiceCivique from '../image/ServiceCivique_faiteslesaut.png';
 
 export default class CestQuoi extends Component{
     render(){
@@ -70,7 +70,7 @@ export default class CestQuoi extends Component{
                 <p>
                 L’indemnité de Service Civique est entièrement cumulable avec l’Allocation aux Adultes Handicapés (AAH) et l’Aide au Logement.
                 </p>
-                <a href='https://www.service-civique.gouv.fr/' target='_blank'>Plus d'informations</a>
+                <a href='https://www.service-civique.gouv.fr/' target='_blank' rel="noopener noreferrer">Plus d'informations</a>
             </div>
         )
     }

@@ -1,0 +1,15 @@
+.partenaire{
+    background-color: white;
+    box-shadow: 1px 1px 25px rgba(0,0,0,.2);;
+    width:100%;
+    margin-top: -5%;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 5;
+}
+
+.partenaire ul{
+    padding: 5px 0% 5px 0%;
+    list-style: none;
+    align-items: center;
+}
