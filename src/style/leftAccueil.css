@@ -6,7 +6,7 @@
     font-family: sans-serif;
     text-align: left;
     color: white;
-    transform: skewX(-25deg);
+    /*transform: skewX(-25deg);*/
 }
   
 .video #bloc span{

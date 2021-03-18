@@ -3,6 +3,7 @@ import SkeletonElement from './skeleton/SkeletonElement';
 import SkeletonVideo from './skeleton/skeletonVideo';
 import parse from 'html-react-parser';
 import localhost from './config.json';
+import { Link } from 'react-router-dom';
 
 export default function Video (){
     const [ video, setVideo ] = useState(null);
@@ -34,7 +35,7 @@ export default function Video (){
                 }
                 {!video && <SkeletonVideo />}
                 
-                {!video ? <div className='autre-video mt-4'><SkeletonElement type='title' /></div> : <div className='autre-video'><a href='www.google.com'><span>+ Autres vidéos</span></a></div>}
+                {!video ? <div className='autre-video mt-4'><SkeletonElement type='title' /></div> : <div className='autre-video'><Link to='/video'><span>+ Autres vidéos</span></Link></div>}
                 
             </div>
         </div>

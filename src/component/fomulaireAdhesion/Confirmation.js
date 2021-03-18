@@ -25,7 +25,7 @@ export default function Confirmation(props) {
             <div>
                 <div className='row' style={{color: '#64d134'}}>
                     <FontAwesomeIcon icon={faCheck} style={{fontSize:'1.5em', marginRight:'10px'}}/>
-                    <h3>Vos information ont bien été envoyé</h3>
+                    <h3>Vos informations ont bien été envoyé</h3>
                 </div>
                 <p><strong>{message}</strong></p>
              </div>:

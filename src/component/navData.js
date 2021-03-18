@@ -25,20 +25,33 @@ const navData = [
     },
     {   
         "id": 4,
-        "label": "Service civique",
+        "label": "Dispositifs",
         "class": "service-civique",
         "dropdown": [
-            {"id": 1,"label": "C'est quoi ?", "to": "/c-est-quoi"},
-            {"id": 2,"label": "Nos missions", "to": "/mission"},
-            {"id": 3,"label": "Postuler", "to": "/postuler"}
+            {"id": 1,"label": "Service-civique", "to": "/service-civique",
+                "secondropdown": [
+                    {"id": 1,"label": "C'est quoi ?", "to": "/c-est-quoi"},
+                    {"id": 2,"label": "Nos missions", "to": "/mission"},
+                    {"id": 3,"label": "Postuler", "to": "/postuler"},
+                    {"id": 4,"label": "Espace service civique", "to": "/service-civique/dashboard"},
+                ]
+            },
+           
+            {"id": 2,"label": "Case à lire", "to": "/case-a-lire"},
         ]
 
     },
     {
-        "id": 5,
+        "id":5,
+        "class":'gallerie',
+        "label":"Galerie",
+        "to": "/gallerie",
+    },
+    {
+        "id": 6,
         "class": 'contact',
         "label": "Contact",
-        "to": "/contact"
+        "to": "/contact",
     }
 ];
 export default navData;

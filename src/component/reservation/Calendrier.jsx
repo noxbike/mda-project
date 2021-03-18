@@ -18,9 +18,10 @@ export default class Calendrier extends Component {
 
     constructor() {
         super(...arguments);
-        this.publicKey = 'AIzaSyCZ07Mf4GQBWnhCw3VKors48cBCUQi4H_o';
+        this.publicKey = 'AIzaSyB_ScQZ97xxvZXAyybb4bF5zCX27rLzdV4';
         this.state = {
-            dataManger: null,
+            dataManger: [],
+            calendarId: null,
         }
     }
 
@@ -48,7 +49,7 @@ export default class Calendrier extends Component {
                     }
                     scheduleData.push({
                         Id: event.id,
-                        Subject: event.summary,
+                        Subject: 'réservé',
                         StartTime: new Date(start),
                         EndTime: new Date(end),
                         IsAllDay: !event.start.dateTime,
@@ -62,8 +63,13 @@ export default class Calendrier extends Component {
     }
 
     componentWillReceiveProps = (nextProps) => {
+        let data = null;
+        if(this.props.calendarData){
+            this.props.calendarData.map(item => nextProps.calendarId === item.calendarId ? data = item.page: null)
+        }
+        let endurl = data ? `&pageToken=${ data[data.length-1]}`: '';
         let result = new DataManager({
-            url: 'https://www.googleapis.com/calendar/v3/calendars/' + nextProps.calendarId + '/events?key=' + this.publicKey,
+            url: 'https://www.googleapis.com/calendar/v3/calendars/' + nextProps.calendarId + '/events?key=' + this.publicKey + endurl ,
             adaptor: new WebApiAdaptor(),
             crossDomain: true
         })

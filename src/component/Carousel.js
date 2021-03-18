@@ -21,26 +21,26 @@ export default class Carousel extends Component {
             }
         })
         .then(res => res.json())
-        .then(data => this.setState({data: data.carouselFound}))
+        .then(data => this.setState({ data: data.carouselFound }))
     }
     render(){
         const { data } = this.state;
         return(
             <div id="video-carousel-example2" className="carousel slide carousel-fade" data-ride="carousel">
                <div className="carousel-inner" role="listbox">
-                    {data && data.map(item =>
-                        <div className={`carousel-item ${item.id === 1 ? 'active' : ''}`}>
-                            <div className="view row justify-content-center" style={{backgroundColor:''}}>
-                                {parse(`${item.images}`)}
+                    { data && data.map(item =>
+                        <div className={ `carousel-item ${ item.id === 1 ? 'active' : '' }` }>
+                            <div className="view ml-auto mr-auto row justify-content-center" style={{ backgroundColor:'' }}>
+                                <img src={ item.images } alt='carousel'/>
                                 <div className="full-bg-img flex-center">
                                     <div className="carousel-caption masque">
-                                        {parse(`${item.caption}`)}
+                                        {parse(`${ item.caption }`)}
                                     </div>
                                 </div>
                             </div>
                         </div>
                     )}
-                    {!data && <SkeletonCarousel />}
+                    { !data && <SkeletonCarousel /> }
                 </div>
                 <a className="carousel-control-prev" href="#video-carousel-example2" role="button" data-slide="prev">
                     <span className="sr-only">Previous</span>

@@ -2,7 +2,6 @@
     font-family: sans-serif;
     text-align: left;
     color: white;
-    transform: skewX(-25deg);
 }
   
 .articles #bloc span{
@@ -11,6 +10,10 @@
     padding: 0px 1% 0.8% 1%;
     
 }
+
+.article a:hover, .article2 a:hover{
+    text-decoration: none;
+}
   
 .articles #bloc{
     padding: 0px;
@@ -18,14 +21,12 @@
 }
 
 .article{
-    padding:0px;
     box-shadow: 1px 1px 25px rgba(0,0,0,.2);
     border: 1px solid #c1c1c1;
 }
 
 
 .article2{
-    padding:0px;
     box-shadow: 1px 1px 25px rgba(0,0,0,.2);
     border: 1px solid #c1c1c1;
     min-width: 230px;
@@ -44,12 +45,12 @@
     transition:500ms;
 }
 
-.article2:hover h4, .article:hover h4{
+.article2:hover h4, .article:hover h4, .article:hover h2, .article:hover .paragraphe-top{
     color: #932724;
     transition: 500ms;
 }
 
-.image-article{
+.image-article, .image-article-top{
     display:flex;
     justify-content: flex-end;
     align-items: flex-end;
@@ -107,6 +108,10 @@
 @media screen and (min-width: 768px) {
     .skeleton-article .article {
         min-width: 720px;
+    }
+
+    .image-article-top{
+        height: 400px;
     }
 
     .article2{

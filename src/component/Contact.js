@@ -50,11 +50,11 @@ export default class Contact extends Component {
                             <div className='col-md-12 col-lg-8 col-xl-8'>
                                 <h1>Rejoignez nous</h1>
                             </div>
-                            <div className='row col-md-12 col-lg-4'>
-                                <div className='col-12 col-md-2 col-lg-2'>
+                            <div className='row align-items-center justify-content-around col-12 col-md-12 col-lg-4 mt-4'>
+                                <div>
                                     <i className="fa fa-clock-o" style={{fontSize: '2em'}} aria-hidden="true"></i>
                                 </div>
-                                <p className='text-center'>Du Lundi au Vendredi <br/>de<br/> 8h à 12h et 13h à 17h</p>
+                                <p className='text-center'>Du Lundi au Vendredi <br/>de<br/> 8h à 17h</p>
                             </div>
                         </div>
                         <section className="contact-section dark-grey-text mb-5">
@@ -112,7 +112,7 @@ export default class Contact extends Component {
                                             </form>
                                         </div>
                                     </div>
-                                    <div className="col-lg-4 contact-information">
+                                    <div className="col-lg-4 p-0 contact-information">
                                         <div className="card-body contact text-center h-100 white-text">
                                             <h5 className="font-weight-bold my-4 pb-2">Contact information</h5>
                                             <ul className="text-lg-left list-unstyled ml-4">
@@ -129,16 +129,12 @@ export default class Contact extends Component {
                                                 <li>
                                                     <p><i className="fas fa-envelope fa pr-2"></i>mda-saintbenoit@orange.fr</p>
                                                 </li>
+                                                <li>
+                                                    <a href='https://www.facebook.com/pg/MDAdeStBenoit/posts/' target='__blank' className='text-left' style={{color:'white'}}>
+                                                        <i className="fab fa-facebook-f fa"></i>  <span className='pl-1' style={{fontWeight:'400'}}>facebook.com/MDAdeStBenoit</span>
+                                                    </a>
+                                                </li>
                                             </ul>
-                                            <div className='text-left'>
-                                                <ul className='list-unstyled ml-4'>
-                                                    <li>
-                                                        <a href='https://www.facebook.com/pg/MDAdeStBenoit/posts/' target='__blank' className='text-left'>
-                                                            <i className="fab fa-facebook-f fa"></i>
-                                                        </a>
-                                                    </li>
-                                                </ul>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>

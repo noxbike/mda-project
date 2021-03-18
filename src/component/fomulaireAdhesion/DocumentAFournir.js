@@ -19,13 +19,13 @@ export default function DocumentAFournir(props) {
             <div className='row col-lg-8 ml-auto mr-auto justify-content-around align-items-center mb-4 p-0'>
                 <div className='col-12 text-center'><p style={{color:'red'}}>{error}</p></div>
                 <div>
-                    <h4>Document à fournir</h4>
+                    <h4>Documents à fournir</h4>
                     <ul>
                         <li>Copie des statuts</li>
                         <li>Attestation d'assurance</li>
-                        <li>Copie de parution au Journal officel</li>
+                        <li>Copie de parution au Journal Officiel</li>
                         <li>Récépissé de dernière déclaration à la préfecture</li>
-                        <li>P.V. dernière Assemblée Général</li>
+                        <li>P.V. dernière Assemblée Générale</li>
                     </ul>
                 </div>
                 <div>

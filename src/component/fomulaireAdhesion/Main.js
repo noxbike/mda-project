@@ -7,6 +7,7 @@ import RepresentantLegale from './RepresentantLegale';
 
 export default function Main (props) {
 
+    const [ civilite, setCivilite ] = useState('M.')
     const [ nom, setNom ] = useState(null);
     const [ prenom, setPrenom ] = useState(null);
     const [ qualite, setQualite ] = useState('Président');
@@ -31,17 +32,17 @@ export default function Main (props) {
     const [ file, setFile ] = useState([]);
     const [ compositionBureau, setCompositionBureau ] = 
         useState([
-            {id: 0, fonction: 'Président', NomPrenom: '', telephone: '', email: ''},
+            {id: 0, fonction: 'Président(e)', NomPrenom: '', telephone: '', email: ''},
             {id: 1, fonction: 'Secrétaire', NomPrenom: '', telephone: '', email: ''},
-            {id: 2, fonction: 'Trésorier', NomPrenom: '', telephone: '', email: ''}
+            {id: 2, fonction: 'Trésorier(ère)', NomPrenom: '', telephone: '', email: ''}
         ]);
 
-    const representant_legale = {nom, prenom, qualite, adresse, telephoneAmb, email}
+    const representant_legale = {civilite, nom, prenom, qualite, adresse, telephoneAmb, email}
     const identification_association = {nomAssociation, sigle, siret, tel, emailAssociation,
         dateCreation, maldecRna, adresseSiegeSocial, codeApe, numAgrement, affiliation, 
         derniereAssembleeGenerale, dateParutionAuJournalOfficiel }
 
-    const setter ={ setFile, setNom, setPrenom, setQualite, setAdresse, setTelephoneAmb, setEmail,
+    const setter ={ setFile, setCivilite, setNom, setPrenom, setQualite, setAdresse, setTelephoneAmb, setEmail,
     setNomAssociation, setSigle, setSiret, setTel, setEmailAssociation,
     setDateCreation, setMaldecRna, setAdresseSiegeSocial, setCodeApe, setNumAgrement, setAffiliation, setDerniereAssembleeGenerale, 
     setDateParutionAuJournalOfficiel, setCompositionBureau };

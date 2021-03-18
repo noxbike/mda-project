@@ -7,10 +7,6 @@ import  { faTimes, faCheck } from '@fortawesome/free-solid-svg-icons';
 const localhost = require('../component/config.json');
 
 export default function RendezVous () {
-    const [ id, setId ] = useState(null)
-    const [ association, setAssociation ] = useState('')
-    const [ startTime, setStartime ] = useState()
-    const [ endTime, setEndTime ] = useState()
     const [ form, setForm ] = useState(false)
     const [ data, setData ] = useState([])
     const [ error, setError ] = useState(null)
@@ -46,10 +42,10 @@ export default function RendezVous () {
                         <div style={{backgroundColor: 'white'}} className='sheduler row col-12 col-md-6 col-lg-7 mt-4 ml-auto mr-auto'>
                             <div className='row col-12 align-items-center'>
                                 <div className='col-6 col-md-6 p-0 mb-2'>
-                                    <h4>Rendez-vous</h4>
+                                    <h4>Agenda de rendez-vous</h4>
                                 </div>
                                 <div className='col-6 col-md-6 mb-2 text-right'>
-                                    <button onClick={ () => displayForm() }>Prendre rendez-vous</button>
+                                    <button onClick={ () => displayForm() }>Rendez-vous</button>
                                 </div>
                             </div>
                             <Calendrier

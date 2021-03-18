@@ -20,13 +20,13 @@ export default function PresentationSalle() {
         <div className='bloc-salle mb-4 p-0'>
             {
                 salle.map(item =>
-                    <div key={item.id} className={`salle salle${item.id}`}>
-                        <div className={`image-salle p-0`}>
-                            <img src={require(`${item.image}`)}/>
+                    <div key={item.id} className={ `salle salle${item.id}` }>
+                        <div className={ `image-salle p-0` }>
+                            <img src={ require(`${item.image}`) }/>
                         </div>
                         <div className='body p-1'>
-                            <h6><strong>{item.titre}</strong></h6>
-                            <p>{item.body}</p>
+                            <h6><strong>{ item.titre }</strong></h6>
+                            <p>{ item.body }</p>
                         </div>
                     </div>)
             }

@@ -23,14 +23,14 @@ export default function Services() {
     };
 
     return (
-        <div className='container row justify-content-center ml-auto mr-auto col-md-12 p-0 m-0' style={{maxWidth:'1190px'}}>
+        <div className='container row justify-content-center ml-auto mr-auto col-md-12 p-0 m-0' style={{ maxWidth:'1190px' }}>
             {
                 service.map(item =>
                     <div className = 'card' key={ item.id }>
                         <div className='text-center mt-auto mb-auto'>
-                            <FontAwesomeIcon icon={ tab[ item.icon ] } style={{color:`${ item.color }`}}/>
+                            <FontAwesomeIcon icon={ tab[ item.icon ] } style={{ color:`${ item.color }` }}/>
                             <h6><strong>{ item.titre }</strong></h6>
-                            <div className='presentation-services text-left' dangerouslySetInnerHTML={getSqlPresentation(item.body)}></div>
+                            <div className='presentation-services text-left' dangerouslySetInnerHTML={ getSqlPresentation(item.body) }></div>
                         </div>
                     </div>
                 )

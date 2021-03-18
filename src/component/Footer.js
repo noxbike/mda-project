@@ -24,7 +24,7 @@ export default class Footer extends Component{
 
                   <div className="col-md-2 mb-3">
                     <h6 className="text-uppercase font-weight-bold">
-                      <a href="#!">Aide</a>
+                      <a href="#!">Mentions légales</a>
                     </h6>
                   </div>
 
@@ -39,7 +39,7 @@ export default class Footer extends Component{
               </div>
 
               <div className="footer-copyright text-center py-3">
-                <a href="https://mdbootstrap.com/"> MDA Saint-Benoit | 6 rue Le Corbusier - Bras-Fusil - BP102 97470 Saint-Benoît | 02 62 41 67 14</a>
+                <a href="https://mdbootstrap.com/"> MDA Saint-Benoit | 6 rue Le Corbusier - Bras-Fusil - BP102 97470 Saint-Benoît | 02 62 41 34 04</a>
               </div>
 
             </footer>

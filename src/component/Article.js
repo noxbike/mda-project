@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import '../style/article.css';
 import Moment from 'moment';
 import 'moment/locale/fr';
@@ -38,67 +39,67 @@ export default class Article2 extends Component {
     render(){
         const { firstArticle, topArticles } = this.state;
         return (
-            <div className='articles col-md-12 col-lg-7'>
+        <div className='articles p-0 col-md-12 col-lg-7'>
           <div className='container'>
             
           <div className='row d-flex justify-content-around'>
-                {firstArticle && firstArticle.map(item =>
-                    <div key={item.id} className='article row col-12  col-sm-10 col-md-12 mb-4'>
-                        
-                        <div className='paper-article'></div>
+                { firstArticle && firstArticle.map(item =>
+                    <div key={ item.id } className='article col-12 mb-4'>
+                        <Link to={`/article/${item.url}`} className='row col-12  col-sm-10 col-md-12'>
+                            <div className='paper-article'></div>
 
-                        <div className='col-md-6' style={{padding:'0px'}}>
-                            <div className='image-article' style={{backgroundImage:`url(${item.photo})`}}>
-                                <div className='date'>
-                                    <p className='col-sm'>{this.time(item.createdAt)}</p>
+                            <div className='col-md-6' style={{ padding:'0px' }}>
+                                <div className='image-article' style={{ backgroundImage:`url(http://${localhost.localhost}/${item.photo})` }}>
+                                    <div className='date'>
+                                        <p className='col-sm'>{ this.time(item.createdAt) }</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div className='article-body d-flex flex-column justify-content-between col-md-6'>
-                            <div className='mt-2'>
-                                <h4><strong>{item.titre}</strong></h4>
+                            <div className='article-body d-flex flex-column justify-content-between col-md-6'>
+                                <div className='mt-2'>
+                                    <h4><strong>{ item.titre }</strong></h4>
+                                </div>
+                                    
+                                <div className='article-bottom row'>
+                                    <p className='col-sm'>{ item.auteur }</p>
+                                    <p className='tag col-sm'>#Top actu</p>
+                                </div>
                             </div>
-                                
-                            <div className='article-bottom row'>
-                                <p className='col-sm'>by {item.auteur}</p>
-                                <p className='tag col-sm'>#categorie</p>
-                            </div>
-                        </div>
-
+                        </Link>
                     </div>
                 )}
-                {!firstArticle && [1].map(item => <SkeletonArticle key={item} />)}
+                { !firstArticle && [1].map(item => <SkeletonArticle key={item} />) }
 
                 <div className='row col-lg-12 justify-content-around justify-content-md-between'>
                 {topArticles && topArticles.map(item =>
-                    <div key={item.id} className='article2 row col-12 col-sm-10 col-md-5 mb-4'>
+                    <div key={ item.id } className='article2 p-0 row col-12 col-sm-10 col-md-5 mb-4'>
+                        <Link to={`/article/${item.url}`}>
+                            <div className='paper-article'></div>
 
-                        <div className='paper-article'></div>
-
-                        <div className='col-12 col-md-12' style={{padding:'0px'}}>
-                            <div className='image-article' style={{backgroundImage:`url(${item.photo})`}}>
-                                <div className='date'>
-                                    <p className='col-sm'>{this.time(item.createdAt)}</p>
+                            <div className='col-12 col-md-12' style={{ padding:'0px' }}>
+                                <div className='image-article' style={{ backgroundImage:`url(http://${localhost.localhost}/${item.photo})` }}>
+                                    <div className='date'>
+                                        <p className='col-sm'>{ this.time(item.createdAt) }</p>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-                        <div className='article-body col-12 col-md-12'>
-                            <h4 className='pt-2 pb-2'><strong>{item.titre}</strong></h4>
-                            <div className='article-bottom row'>
-                                <p className='col-sm'>by {item.auteur}</p>
-                                <p className='tag col-sm'>#categorie</p>
+                            <div className='article-body col-12 col-md-12'>
+                                <h4 className='pt-2 pb-2'><strong>{ item.titre }</strong></h4>
+                                <div className='article-bottom row'>
+                                    <p className='col-sm'>{ item.auteur }</p>
+                                    <p className='tag col-sm'>#Actu</p>
+                                </div>
                             </div>
-                        </div>
-
+                        </Link>
                     </div>
                 )}
-                {!topArticles && [1,2].map(item => <SkeletonArticle2 key={item} />)}
+                { !topArticles && [1,2].map(item => <SkeletonArticle2 key={ item } />) }
                 </div>
             </div>
             <div className='autre-article'>
-              {!topArticles ? <SkeletonElement type='title'/> : <a href='#'>+ Tout les articles</a>}
+              { !topArticles ? <SkeletonElement type='title'/> : <Link to='/article'>+ Tous les articles</Link> }
             </div>
           </div>
         </div>

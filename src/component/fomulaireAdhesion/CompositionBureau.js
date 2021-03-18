@@ -10,7 +10,7 @@ export default class CompositionBureau extends Component {
             message: '',
             emailMessage: ['', '', ''],
             data: this.props.value,
-            choix: 'Vice-Président'
+            choix: 'Vice-Président(e)'
         }
     }
 
@@ -101,13 +101,10 @@ export default class CompositionBureau extends Component {
                     <div className='row col-lg-6 justify-content-around pt-4'>
                         <div className="form__group field mb-4 col-7">
                             <select className="form__field" id="exampleFormControlSelect1" onChange={(e) => this.setState({choix: e.target.value})}>
-                                <option value='Vice-Président'>Vice-Président</option>
-                                <option value='Vice-Présidente'>Vice-Présidente</option>
-                                <option value='Trésorier-Adjoint'>Trésorier-Adjoint</option>
-                                <option value='Trésorière-Adjointe'>Trésorière-Adjointe</option>
-                                <option value='Secrétaire-Adjoint'>Secretaire-Adjoint</option>
-                                <option value='Secrétaire-Adjointe'>Secretaire-Adjointe</option>
-                                <option value='Membre'>Membre</option>
+                                <option value='Vice-Président(e)'>Vice-Président(e)</option>
+                                <option value='Trésorier(ère)-Adjoint(e)'>Trésorier-Adjoint(e)</option>
+                                <option value='Secrétaire-Adjoint(e)'>Secretaire-Adjoint(e)</option>
+                                <option value='Membre/Administrateur'>Membre/Administrateur</option>
                             </select>
                             <label className="form__label" htmlFor="exampleFormControlSelect1">Fonction</label>
                         </div>

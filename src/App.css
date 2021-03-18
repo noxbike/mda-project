@@ -16,12 +16,12 @@ html, body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.App #content{
+.App #content, .disconnected #content{
   margin-top: auto;
   margin-bottom: auto;
 }
 
-.App footer {
+.App footer, .disconnected footer {
   position:absolute;
   bottom: 0;
   right:0;
@@ -53,7 +53,7 @@ a {
 }
 
 @media screen and  (min-width: 319px){
-  .App{
+  .App, .disconnected{
     min-height:100vh;
     height:100%;
     position: relative;
@@ -62,7 +62,7 @@ a {
 }
 
 @media screen and (min-width: 989px){
-  .App{
+  .App, .disconnected{
     padding-bottom:201px;
   }
 }

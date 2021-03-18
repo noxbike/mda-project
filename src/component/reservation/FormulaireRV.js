@@ -6,10 +6,11 @@ const localhost = require('../config.json');
 
 export default function FormulaireRV(props) {
     const [ email, setEmail ] = useState(null);
-    const [ description, setDescription ] = useState(null)
-    const [ association, setAssociation ] = useState(null)
-    const [ startTime, setStartTime ] = useState(new Date())
-    const [ error, setError ] = useState(null)
+    const [ description, setDescription ] = useState(null);
+    const [ telephone, setTelephone ] = useState(null);
+    const [ association, setAssociation ] = useState(null);
+    const [ startTime, setStartTime ] = useState(new Date());
+    const [ error, setError ] = useState(null);
     
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -24,6 +25,7 @@ export default function FormulaireRV(props) {
             body: JSON.stringify({
                 'association': association,
                 'email': email,
+                'telephone': telephone,
                 'description': description,
                 'startTime': startTime,
                 'endTime': endTime,
@@ -52,6 +54,11 @@ export default function FormulaireRV(props) {
                     </div>
                     <div className='col-6'>
                         <input type='email' className='e-feld e-input' onChange={(event) => setEmail(event.target.value)} value={ email } placeholder='Email *'/>
+                    </div>
+                </div>
+                <div className='col-6 mb-4'>
+                    <div className='col-12 mb-4'>
+                        <input type='text' className='e-feld e-input' onChange={(event) => setTelephone(event.target.value)} value={ telephone } placeholder='Téléphone'/>
                     </div>
                 </div>
                 <div className='row mb-4'>

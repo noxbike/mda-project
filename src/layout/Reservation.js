@@ -4,13 +4,10 @@ import Calendrier from '../component/reservation/Calendrier.jsx';
 import FormulaireSalle from '../component/reservation/FormulaireSalle';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import  { faTimes, faCheck } from '@fortawesome/free-solid-svg-icons';
+import imagine from '../image/background-maison-mda.jpg'
 const localhost = require('../component/config.json');
 
 export default function Reservation () {
-    const [ id, setId ] = useState(null)
-    const [ association, setAssociation ] = useState('')
-    const [ startTime, setStartime ] = useState()
-    const [ endTime, setEndTime ] = useState()
     const [ form, setForm ] = useState(false)
     const [ data, setData ] = useState([])
     const [ error, setError ] = useState(null)
@@ -34,7 +31,7 @@ export default function Reservation () {
     switch (error) {
         case null:
             return (
-                <div id='reserver'>
+                <div id='reserver' style={{backgroundImage:`url(${imagine})`, backgroundSize:'cover'}}>
                     <div className='row col-12 col-xl-10 ml-auto mr-auto pb-4 '>
                         <div className={ `application animate__animated${form ? ' animate__backInLeft' : ' d-none'} row col-12 col-sm-8 col-md-5 col-lg-4` } style={{ marginLeft:'auto', marginRight: 'auto', backgroundColor: 'white' }}>
                             <div className='col-12 text-right'>
@@ -60,6 +57,7 @@ export default function Reservation () {
                             </div>
                             <Calendrier
                                 calendarId={ calendarId }
+                                calendarData={ data }
                             />
                         </div>
                     </div>

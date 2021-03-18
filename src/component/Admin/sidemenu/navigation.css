@@ -1,0 +1,27 @@
+#adminMenu{
+    color: white;
+}
+.nav a{
+    color:white;
+}
+
+.nav{
+    border-left: 4px solid #3d3d3d;
+    transition: 250ms;
+}
+
+.nav:hover{
+    background-color: #333333;
+    border-left: 4px solid red;
+    transition: 250ms;
+    cursor: pointer;
+}
+
+.nav a{
+    text-decoration: none;
+}
+
+.deconnexion:hover{
+    text-decoration: none;
+    cursor: pointer;
+}

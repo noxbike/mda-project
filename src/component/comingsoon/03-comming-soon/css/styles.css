@@ -1,0 +1,101 @@
+
+/*
+====================================================
+
+* 	[Master Stylesheet]
+	
+	Theme Name :  
+	Version    :  
+	Author     :  
+	Author URI :  
+
+====================================================
+
+	TOC
+	
+	1. PRIMARY STYLES
+	2. COMMONS FOR PAGE DESIGN
+		JQUERY LIGHT BOX
+	3. MAIN SECTION
+
+====================================================
+
+/* ---------------------------------
+1. PRIMARY STYLES
+--------------------------------- */
+
+	.main-area a, .main-area button{ display: inline-block; text-decoration: none; color: inherit; transition: all .3s; line-height: 1; }
+
+	.main-area a:focus, .main-area a:active, .main-area a:hover,
+.main-area button:focus, .main-area button:active, .main-area button:hover,
+.main-area a b.light-color:hover{ text-decoration: none; color: #E45F74; }
+
+.main-area b{ font-weight: 500; }
+
+.main-area img{ width: 100%; }
+
+.main-area li{ list-style: none; display: inline-block; }
+
+.main-area span{ display: inline-block; }
+
+.main-area button{ outline: 0; border: 0; background: none; cursor: pointer; }
+
+.main-area b.light-color{ color: #444; }
+
+.main-area .icon{ font-size: 1.1em; display: inline-block; line-height: inherit; }
+
+
+/* ---------------------------------
+2. COMMONS FOR PAGE DESIGN
+--------------------------------- */
+
+.center-text{ text-align: center; } 
+
+.display-table{ display: table; height: 100%; width: 100%; }
+
+.display-table-cell{ display: table-cell; vertical-align: middle; }
+
+
+
+::-webkit-input-placeholder { font-size: .9em; letter-spacing: 1px; }
+
+::-moz-placeholder { font-size: .9em; letter-spacing: 1px; }
+
+:-ms-input-placeholder { font-size: .9em; letter-spacing: 1px; }
+
+:-moz-placeholder { font-size: .9em; letter-spacing: 1px; }
+
+
+.full-height{ height: 100%; }
+
+.position-static{ position: static; }
+
+.font-white{ color: #fff; }
+
+
+/* ---------------------------------
+3. MAIN SECTION
+--------------------------------- */
+
+.main-area{ position: relative; height: 100vh; z-index: 1; padding: 0 20px; background-size: cover; color: #fff; }
+
+.main-area:after{ content:''; position: absolute; top: 0; bottom: 0;left: 0; right: 0; z-index: -1;  
+	opacity: .4; background: #000; }
+
+.main-area .desc{ margin: 20px auto; max-width: 500px; }
+	
+.main-area .notify-btn{ padding: 13px 35px; border-radius: 50px; border: 2px solid #F84982;
+	color: #fff; background: #F84982; }
+
+.main-area .notify-btn:hover{ background: none; }
+
+.main-area .social-btn{ position: absolute; bottom: 40px; width: 100%; left: 50%; transform: translateX(-50%); }
+
+.main-area .social-btn > li > a{ margin: 0 10px; padding-bottom: 7px; position: relative; overflow: hidden; }
+
+.main-area .social-btn > li > a:after{ content:''; position: absolute; bottom: 0; left: 0; right: 0; 
+	transition: all .2s; height: 2px; background: #F84982; }
+
+	
+.main-area .social-btn > li > a:hover:after{ transform: translateX(100%); }
+

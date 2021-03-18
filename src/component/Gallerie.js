@@ -1,6 +1,7 @@
 import React, { useState, useCallback } from "react";
 import Gallery from 'react-photo-gallery';
 import Carousel, { Modal, ModalGateway } from "react-images";
+const localhost = require('./config.json');
 const photos = require('./photo.json');
 
 export default function Gallerie() {
@@ -18,8 +19,7 @@ export default function Gallerie() {
     };
     return (
         <div className='col-12'>
-            <h1 className='col-12 text-center pb-4'>Gallerie</h1>
-            <div className='col-12'>
+            <div className='col-12 mt-4'>
                 <Gallery photos={photos} onClick={openLightbox} />
                     <ModalGateway>
                         {viewerIsOpen ? (

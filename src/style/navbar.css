@@ -35,7 +35,7 @@ nav{
 
 .dropdown {
   display:none;
-  position: absolute;
+  position: absolute!important;
   padding-left: 0px;
 }
 

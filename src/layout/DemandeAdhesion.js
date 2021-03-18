@@ -21,10 +21,11 @@ export default function DemandeAdhesion() {
     }
 
     const step = [
-        {id: 1, text: "Représentant légal"},
-        {id: 2, text: "Identification de l'Association"},
-        {id: 3, text: "Conseil d'Administration"},
-        {id: 4, text: "Document à fournir"}];
+        { id: 1, text: "Représentant légal" },
+        { id: 2, text: "Identification de l'Association" },
+        { id: 3, text: "Conseil d'Administration" },
+        { id: 4, text: "Documents à fournir" }
+    ];
 
     const conditionStepColor = (item) => {
         let style = {};
@@ -45,10 +46,10 @@ export default function DemandeAdhesion() {
 
     const conditionStepIcon = (item) => {
         if(page > item){
-            return (<FontAwesomeIcon icon={faCheck}/>)
+            return (<FontAwesomeIcon icon={ faCheck }/>)
         }
         else if ( page === item ){
-            return( <FontAwesomeIcon icon={faSyncAlt}/>)
+            return( <FontAwesomeIcon icon={ faSyncAlt }/>)
         }
 
         else {
@@ -60,11 +61,11 @@ export default function DemandeAdhesion() {
         <div className='Declaration-Associations container col-lg-12'>
             <h1 className='text-center mb-4'>Demande d'adhésion</h1>
             <div className='row ml-auto mr-auto col-lg-6 justify-content-around mb-4'>
-                {step.map(item =>
-                    <div key={item.id} className='step'>
+                { step.map(item =>
+                    <div key={ item.id } className='step'>
                         <div className='line'></div>
                         <div>
-                            <p className='round' style={conditionStepColor(item.id)}>{conditionStepIcon(item.id)}</p>
+                            <p className='round' style={ conditionStepColor(item.id) }>{ conditionStepIcon(item.id) }</p>
                         </div>
                         
                     </div>
@@ -72,17 +73,17 @@ export default function DemandeAdhesion() {
             </div>
             <div className='row textStep ml-auto mr-auto col-lg-6 justify-content-around mb-4'>
                 {step.map(item => page === item.id ?
-                    <h6 style={{color: 'rgb(99, 99, 99)'}}key={item.id}><strong>{item.text}</strong></h6> :
-                    <h6 className='hide-mobile' key={item.id}>{item.text}</h6>  
+                    <h6 style={{ color: 'rgb(99, 99, 99)' }}key={ item.id }><strong>{ item.text }</strong></h6> :
+                    <h6 className='hide-mobile' key={ item.id }>{ item.text }</h6>  
                 )}
             </div>
             <div>
                 <Main setPage={ setPage } pageNow={ page } next={next} previous={previous} />
             </div>
-            {/*<div className='col-lg-10 row justify-content-end'>
+            <div className='col-lg-10 row justify-content-end'>
                 {page === 1 ? null : <button onClick={ previous }>Précédent</button>}
                 {page === 4 ? <button onClick={ next }>Confirmer</button> : <button onClick={ next }>Suivant</button>}
-            </div>*/}
+            </div>
         </div>
     )
 }

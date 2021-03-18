@@ -4,6 +4,11 @@
     padding-left: 1%;
 }
 
+#events a:hover{
+  text-decoration: none;
+  color:#932724;
+}
+
 #events .cart{
   min-width: 230px;
   max-width: 264px;
@@ -12,6 +17,7 @@
   padding: 0px;
   border: 1px solid rgb(187, 187, 187);
   box-shadow: 0px 0px 16px rgba(0, 0, 0, 0.26);
+  font-weight: 400;
 }
 
 #events .fontAwesomeEvent{
@@ -22,7 +28,7 @@
   font-family: sans-serif;
   text-align: left;
   color: white;
-  transform: skewX(-25deg);
+  /*transform: skewX(-25deg);*/
   margin-left: 0.8%;
 }
 

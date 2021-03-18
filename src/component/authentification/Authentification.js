@@ -1,24 +1,21 @@
-const localhost = require('../config.json');
-export default function Authentification(){
+import { useEffect } from "react";
+var localhost = require('../config.json');
+
+export default function Authentification(props) {
     const token = localStorage.getItem('x-xsrf-token');
-    if(token){
-        return true;
-    }
-    else{
-        return false;
-    }
-}
-/*
-export default function Authentification(){
-        let data = fetch(`http://${localhost.localhost}/api/auth`,{
-            method: 'GET',
-            headers: {
-                'Content-Type':'application/json',
-                
-            }
+
+    useEffect(() => {
+        fetch(`http://${localhost.localhost}/api/auth`,{
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'x-xsrf-token': token,
+          },
+          credentials:'include'
         })
         .then(data => data.json())
-        .then(data => data.user)
-        console.log(data)
-        return data;
-}*/
+        .then(res => props.setUser(res.user))
+      },[])
+
+  return null;
+}

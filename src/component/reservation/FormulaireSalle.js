@@ -87,12 +87,12 @@ export default function FormulaireSalle(props) {
                         <div className='col-7' >
                             <select style={{outline:'none', border:'none'}} className="e-field e-input" onChange={(event) => {setSalle(event.target.value); setNbPersonne(1)}} value={ salle } id="inlineformCustomSelectPref">
                                     {props.salle.map(item => item.name !== 'Rendez-vous' ?
-                                        <option value={item.name}>{item.name}</option> : ''
+                                        <option key={item.name} value={item.name}>{item.name}</option> : ''
                                     )}
                             </select>
                         </div>
                         <div className='col-5'>
-                            <input type='number' min="1" max={limitPerson()} className='e-field e-input' onChange={(event) => setNbPersonne(event.target.value)} value={ nbPersonne } placeholder="Nbre de personne"/>
+                            <input type='number' min="1" max={limitPerson()} className='e-field e-input' onChange={(event) => setNbPersonne(event.target.value)} value={ nbPersonne } placeholder="Nbre de personnes"/>
                         </div>
                 </div>
             </div>
@@ -104,7 +104,7 @@ export default function FormulaireSalle(props) {
                     <ul>
                         {description && description.map(item => <li>{item}</li>)}
                     </ul>
-                    {!description && <h6 className='text-center'style={{fontWeight:'700'}}>Aucun matériel réserver</h6>}
+                    {!description && <h6 className='text-center'style={{fontWeight:'700'}}>Aucun matériel réservé</h6>}
                 </div>
                 <div className='col-12 mb-2 row'>
                     <select className='col-6 e-field e-input' onChange={(e) => setObject(e.target.value)} value={object} style={{border:'none', outline:'none'}}>

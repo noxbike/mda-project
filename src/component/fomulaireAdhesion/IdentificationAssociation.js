@@ -6,13 +6,13 @@ export default function IdentificationAssociation(props) {
     const [ message, setMessage ] = useState('');
     const [ email, setEmail ] = useState('');
     const verify = () => {
-        const tab = [props.value.nomAssociation, props.value.sigle, props.value.adresseSiegeSocial, props.value.tel, props.value.emailAssociation, props.value.dateParutionAuJournalOfficiel, props.value.dateCreation, props.value.maldecRna, props.value.siret, props.value.numAgrement, props.value.affiliation, props.value.derniereAssembleeGenerale, props.value.codeApe]
+        const tab = [props.value.nomAssociation, props.value.adresseSiegeSocial, props.value.tel, props.value.emailAssociation, props.value.maldecRna, props.value.numAgrement]
         let valid = true;
         for(let i = 0; i < tab.length; i++){
             valid=(tab[i] === null || tab[i] === '' ? false : valid );
         }
         
-        let emailValid = regexEmail.test(tab[4]);
+        let emailValid = regexEmail.test(tab[3]);
 
         setEmail( !emailValid ? 'Email invalide' : '');
         setMessage( !valid ? 'Tout les champs doit être rempli' : '');
@@ -36,7 +36,7 @@ export default function IdentificationAssociation(props) {
                 <div className=' mb-4 col-lg-5'>
                     <div className="form__group field" >
                         <input type="input" className="form__field" placeholder="Nom" name="Nom" id='Nom' onChange={(e) => props.setter.setNomAssociation(e.target.value)} value={props.value.nomAssociation} required />
-                        <label htmlFor="Nom" className="form__label">Nom de l'association</label>
+                        <label htmlFor="Nom" className="form__label">Nom de l'association *</label>
                     </div>
                 </div>
 
@@ -50,21 +50,21 @@ export default function IdentificationAssociation(props) {
                 <div className=' mb-4 col-lg-5'>
                     <div className="form__group field" >
                         <input type="input" className="form__field" placeholder="Adresse du siège social" name="Adresse-du-siege-social" id='Adresse-du-siege-social' onChange={(e) => props.setter.setAdresseSiegeSocial(e.target.value)} value={props.value.adresseSiegeSocial} required />
-                        <label htmlFor="Address-du-siege-social" className="form__label">Adresse du siège social</label>
+                        <label htmlFor="Address-du-siege-social" className="form__label">Adresse du siège social *</label>
                     </div>
                 </div>
 
                 <div className=' mb-4 col-lg-5'>
                     <div className="form__group field" >
                         <input type="input" className="form__field" placeholder="Tel" name="Tel" id='Tel' onChange={(e) => props.setter.setTel(e.target.value)} value={props.value.tel} required />
-                        <label htmlFor="Tel" className="form__label">Tel</label>
+                        <label htmlFor="Tel" className="form__label">Tél *</label>
                     </div>
                 </div>
 
                 <div className='mb-4 col-lg-5'>
                     <div className="form__group field" >
                         <input type="input" className="form__field" placeholder="Email de l'ambassadeur" name="Email" id='Email' onChange={(e) => props.setter.setEmailAssociation(e.target.value)} value={props.value.emailAssociation} required />
-                        <label htmlFor="Email" className="form__label">Email</label>
+                        <label htmlFor="Email" className="form__label">Email *</label>
                     </div>
                     <p style={{...style}}>{email}</p>
                 </div>
@@ -72,21 +72,21 @@ export default function IdentificationAssociation(props) {
                 <div className=' mb-4 col-lg-5'>
                     <div className="form__group field" >
                         <input type="date" className="form__field" placeholder="Date de publication au journal officiel" name="Date-de-publication-au-journal-officiel" id='Date-de-publication-au-journal-officiel' onChange={(e) => props.setter.setDateParutionAuJournalOfficiel(e.target.value)} value={props.value.dateCreation} required />
-                        <label htmlFor="Date-de-publication-au-journal-officiel" className="form__label">Date de publication au journal officiel</label>
+                        <label htmlFor="Date-de-publication-au-journal-officiel" className="form__label">Date de publication au Journal Officiel</label>
                     </div>
                 </div>
 
                 <div className=' mb-4 col-lg-5'>
                     <div className="form__group field" >
                         <input type="date" className="form__field" placeholder="Date de création" name="Date-de-creation" id='Date-de-creation' onChange={(e) => props.setter.setDateCreation(e.target.value)} value={props.value.dateCreation} required />
-                        <label htmlFor="Date-de-creation" className="form__label">Date de création</label>
+                        <label htmlFor="Date-de-creation" className="form__label">Date de création *</label>
                     </div>
                 </div>
 
                 <div className=' mb-4 col-lg-5'>
                     <div className="form__group field" >
                         <input type="input" className="form__field" placeholder="MALDEC/RNA" name="Maldec/rna" id='Maldec/rna' onChange={(e) => props.setter.setMaldecRna(e.target.value)} value={props.value.maldecRna} required />
-                        <label htmlFor="Maldec/rna" className="form__label">Numéro RNA</label>
+                        <label htmlFor="Maldec/rna" className="form__label">Numéro RNA *</label>
                     </div>
                 </div>
 
@@ -100,7 +100,7 @@ export default function IdentificationAssociation(props) {
                     props.value.numAgrement === null ?
                     <div className=' mb-4 col-lg-5'>
                         <div className="form__group field">
-                            <label htmlFor="numero-d-agrement" className="form__label">Avez-vous un agrément ?</label>
+                            <label htmlFor="numero-d-agrement" className="form__label">Avez-vous un agrément ? *</label>
                             <div className='row justify-content-around pt-2'>
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" value="true" onChange={(e) => props.setter.setNumAgrement('Jeunesse Education Populaire (JEP)')} id="defaultCheck1" />
@@ -167,7 +167,7 @@ export default function IdentificationAssociation(props) {
                     <div className=' mb-4 col-lg-5'>
                         <div className="form__group field" >
                             <input type="input" className="form__field" placeholder="Autre-agrement" name="Autre-agrement" id='Autre-agrement'value={props.value.affiliation} onChange={(e) => props.setter.setAffiliation(e.target.value)} required />
-                            <label htmlFor="Autre-agrement" className="form__label">Nom de la structure</label>
+                            <label htmlFor="Autre-agrement" className="form__label">Nom de la structure (fédération, comité, ligue...)</label>
                         </div>
                     </div>
                 }
