@@ -138,7 +138,10 @@
 @media screen and (min-width: 991px){
     #services .bloc-salle{
     height: 500px;
-}
+    }
+    #services .logo-service{
+        font-size: 45px;
+    }
 }
 
 @media screen and (min-width: 1200px){

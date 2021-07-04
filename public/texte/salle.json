@@ -1,0 +1,26 @@
+[
+    {
+        "id":"1",
+        "titre":"Mise à disposition de bureaux",
+        "body":"Des bureaux équipés (ordinateur, téléphone...)\r\npeuvent être mis temporairement et gratuitement\r\nà la disposition des associations adhérentes pour\r\ndes rendez-vous, des permanences associatives\r\nselon disponibilité.",
+        "image":"./image/bureau.jpg",
+        "createdAt":"2020-10-18 23:42:33",
+        "updatedAt":"2020-10-18 23:42:33"
+    },
+    {
+        "id":"2",
+        "titre":"Mise à disposition de salle de réunion",
+        "body":"Une salle de réunion équipée en matériel technique (Tableau blanc, paperboard, videoprojecteur, sonorisation, tables, chaises...)  est mise temporairement et gratuitement à disposition des associations adhérentes pour les réunions  statutaires, les formations...",
+        "image":"./image/service.jpg",
+        "createdAt":"2020-10-18 23:42:33",
+        "updatedAt":"2020-10-18 23:42:33"
+    },
+    {
+        "id":"3",
+        "titre":"Mise à disposition de salle d’activités",
+        "body":"Une salle de 110m² de surface au sol pour vos conférences, expositions, stages, colloques et activités ponctuelles. A disposition gratuite des associations adhérentes.",
+        "image":"./image/salle-d-activité.jpg",
+        "createdAt":"2020-10-18 23:43:41",
+        "updatedAt":"2020-10-18 23:43:41"
+    }
+]

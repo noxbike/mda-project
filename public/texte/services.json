@@ -1,0 +1,83 @@
+[
+    {
+        "id":"1",
+        "color":"violet",
+        "titre":"Des formations",
+        "body":"Afin de vous soutenir dans votre mission, nous mettons en place des formations adaptées et dispensées par desprofessionnels.",
+        "icon":"0",
+        "createdAt":"2020-10-18 20:59:11",
+        "updatedAt":"2020-10-18 20:59:11"
+    },
+    {
+        "id":"2",
+        "color":"orange",
+        "titre":"Nous restons à l’écoute de tous vos besoins",
+        "body":"(vie statutaire, fiscalité, recherche definancements, questions juridiques etadministratives...) et vous proposons notresavoir-faire en la matière.",
+        "icon":"1",
+        "createdAt":"2020-10-18 20:59:11",
+        "updatedAt":"2020-10-18 20:59:11"
+    },
+    {
+        "id":"3",
+        "color":"blue",
+        "titre":"Une aide à la création",
+        "body":"Des permanents sont à votre disposition pour vous aider à définir votre projetassociatif et à rédiger vos statuts",
+        "icon":"2",
+        "createdAt":"2020-10-18 21:02:01",
+        "updatedAt":"2020-10-18 21:02:01"
+    },
+    {
+        "id":"4",
+        "color":"orange",
+        "titre":"Un appui associatif en direction des jeunes",
+        "body":"- Connaissance de la vie associative</br>- Accompagnement à la prise de    responsabilités</br>- Favoriser l’engagement associatif</br>- Dispositif service civique",
+        "icon":"3",
+        "createdAt":"2020-10-18 21:02:01",
+        "updatedAt":"2020-10-18 21:02:01"
+    },
+    {
+        "id":"5",
+        "color":"green",
+        "titre":"Des services techniques",
+        "body":"- Confection de plaquettes, affiches, tracts.</br>- Maquettes de dîner dansant, loterie.</br>- Scan de documents.</br>- Impression recto-verso.</br>- Agrafage de livret.</br>- Plastification de document.</br>",
+        "icon":"4",
+        "createdAt":"2020-10-18 21:04:31",
+        "updatedAt":"2020-10-18 21:04:31"
+    },
+    {
+        "id":"6",
+        "color":"orange",
+        "titre":"Nos compétences dans les domaines de ...",
+        "body":"- L’informatique et des Technologies de    l’Information et de la Communication.</br>- Du secrétariat.</br>- De la comptabilité.</br>",
+        "icon":"5",
+        "createdAt":"2020-10-18 21:04:31",
+        "updatedAt":"2020-10-18 21:04:31"
+    },
+    {
+        "id":"7"
+        ,"color":"violet",
+        "titre":"Des services administratifs",
+        "body":"- Possibilité, pour une association    adhérente, d’installer son siège social    à la Maison des Associations.</br>- Vous y recevez votre courrier</br>- Photocopies (quota 1200\/ans), reliure de dossiers, massicotage.</br>- Gestion de fichiers d’adresses    informatisées.</br>- Envoi\/réception de fax.</br>- Déclaration des associations en ligne.",
+        "icon":"6",
+        "createdAt":"2020-10-18 21:08:47",
+        "updatedAt":"2020-10-18 21:08:47"
+    },
+    {
+        "id":"8",
+        "color":"blue",
+        "titre":"Un centre documentaire",
+        "body":"Vous y trouverez :</br>- Les quotidiens locaux.</br>- La revue fijudiciaire.</br>- Des revues spécialisées (Juris    Associations, le journal de l’animation,    Association mode d’emploi...)</br>- Des guides pratiques(guide du bénévolat, guide des associations...)</br>- Ainsi qu’un recencement précis des ouvrages traitant du sport, de l'animation et thèmes    apparentés disponibles au prêt ou à la consultation auprès des autres   organisations bénédictines.",
+        "icon":"7",
+        "createdAt":"2020-10-18 21:08:47",
+        "updatedAt":"2020-10-18 21:08:47"
+    },
+    {
+        "id":"9",
+        "color":"green",
+        "titre":"Les permanences d’experts",
+        "body":"Pour une aide pointue sur des questions spécifiques liées à la comptabilité ou la fiscalité associative,  ainsi que pour les problèmes juridiques rencontrés au sein de votre associationnous vous proposons des permanences  trimestrielles d’experts à la Maison  des Associations.",
+        "icon":"8",
+        "createdAt":"2020-10-18 21:10:19",
+        "updatedAt":"2020-10-18 21:10:19"
+    }
+]

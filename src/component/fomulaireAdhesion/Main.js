@@ -16,6 +16,7 @@ export default function Main (props) {
     const [ email, setEmail ] = useState(null);
 
     const [ nomAssociation, setNomAssociation ] = useState(null);
+    const [ theme, setTheme ] = useState('culturel');
     const [ dateParutionAuJournalOfficiel, setDateParutionAuJournalOfficiel ] = useState(null);
     const [ sigle, setSigle ] = useState(null);
     const [ siret, setSiret ] = useState(null);
@@ -38,12 +39,12 @@ export default function Main (props) {
         ]);
 
     const representant_legale = {civilite, nom, prenom, qualite, adresse, telephoneAmb, email}
-    const identification_association = {nomAssociation, sigle, siret, tel, emailAssociation,
+    const identification_association = {nomAssociation ,theme ,sigle, siret, tel, emailAssociation,
         dateCreation, maldecRna, adresseSiegeSocial, codeApe, numAgrement, affiliation, 
         derniereAssembleeGenerale, dateParutionAuJournalOfficiel }
 
     const setter ={ setFile, setCivilite, setNom, setPrenom, setQualite, setAdresse, setTelephoneAmb, setEmail,
-    setNomAssociation, setSigle, setSiret, setTel, setEmailAssociation,
+    setNomAssociation ,setTheme ,setSigle, setSiret, setTel, setEmailAssociation,
     setDateCreation, setMaldecRna, setAdresseSiegeSocial, setCodeApe, setNumAgrement, setAffiliation, setDerniereAssembleeGenerale, 
     setDateParutionAuJournalOfficiel, setCompositionBureau };
     

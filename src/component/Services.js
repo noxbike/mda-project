@@ -28,7 +28,7 @@ export default function Services() {
                 service.map(item =>
                     <div className = 'card' key={ item.id }>
                         <div className='text-center mt-auto mb-auto'>
-                            <FontAwesomeIcon icon={ tab[ item.icon ] } style={{ color:`${ item.color }` }}/>
+                            <FontAwesomeIcon className='logo-service' icon={ tab[ item.icon ] } style={{ color:`${ item.color }`}}/>
                             <h6><strong>{ item.titre }</strong></h6>
                             <div className='presentation-services text-left' dangerouslySetInnerHTML={ getSqlPresentation(item.body) }></div>
                         </div>

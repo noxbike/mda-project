@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import ScrollToTop from '../ScrollToTop';
-import regexEmail from './Regex';
+import ScrollToTop from '../utils/ScrollToTop';
+import validator from 'validator'
 
 export default class CompositionBureau extends Component {
 
@@ -37,8 +37,8 @@ export default class CompositionBureau extends Component {
             for(let key in value){
                 valid=(value[key] === null || value[key] === '' ? false : valid);
                 if(key === 'email'){
-                    email = (regexEmail.test(value[key]) ? true : false);
-                    tabEmailMessage[value['id']] = (regexEmail.test(value[key]) ? '' : 'Email invalide');
+                    email = (validator.isEmail(value[key]) ? true : false);
+                    tabEmailMessage[value['id']] = (validator.isEmail(value[key]) ? '' : 'Email invalide');
                 }
             }
         }

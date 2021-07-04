@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import  { faPaperPlane } from '@fortawesome/free-solid-svg-icons';
 import '../style/contact.css';
-const localhost = require('./config.json');
+const localhost = require('../component/config.json');
 
 export default class Contact extends Component {
     constructor(props){

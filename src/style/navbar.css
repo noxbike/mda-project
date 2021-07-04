@@ -1,5 +1,5 @@
 nav{
-  z-index: 2000;
+  z-index: 1001;
   background-color: white;
   box-shadow: 0px 0px 16px;
   padding: 0;
@@ -33,34 +33,51 @@ nav{
   transition:1200ms
 }
 
-.dropdown {
+.service-civique:hover .sousDropdown,
+.case-a-lire:hover .sousDropdown,
+.solidaire:hover .sousDropdown,
+.sportive:hover .sousDropdown,
+.culturel:hover .sousDropdown,
+.environnement:hover .sousDropdown{
+  top:0;
+  margin-left: 157px;
+  width:250px;
+}
+
+.sousDropdown, .dropdown {
   display:none;
   position: absolute!important;
   padding-left: 0px;
 }
 
-.dropdown li{
+.sousDropdown li, .dropdown li{
   background-color: white;
   width: 100%;
   padding: 5px 40px 5px 40px;
 }
 
-.dropdown ul{
-  border: 1px solid rgb(128, 128, 128);
+.sousDropdown, .dropdown ul{
+  border: none;
 }
 
-.dropdown li:hover{
+.sousDropdown li:hover, .dropdown li:hover{
   background-color: rgb(245, 245, 245);
 }
 
 .services:hover .dropdown-services,
+.sportive:hover .dropdown-sportive,
+.culturel:hover .dropdown-culturel,
+.dispositifs:hover .dropdown-dispositifs,
+.solidaire:hover .dropdown-solidaire,
 .service-civique:hover .dropdown-service-civique,
+.environnement:hover .dropdown-environnment,
+.case-a-lire:hover .dropdown-case-a-lire,
 .Associations:hover .dropdown-Associations {
   display: block;
   padding-top: 15px;
 }
 
-nav li .dropdown li:first-child{
+nav li .dropdown li:first-child, nav li .sousDropdown li:first-child{
   border-top: 4px solid #932724;
 }
 
@@ -98,11 +115,11 @@ nav ul{
   }
 
   .logo-top-none{
-    width:35%;
+    width:85%;
   }
 
   .logo-top{
-    width:25%;
+    width:55%;
   }
 }
 
@@ -113,11 +130,11 @@ nav ul{
   }
 
   .logo-top-none{
-    width:35%;
+    width:85%;
   }
 
   .logo-top{
-    width:25%;
+    width:55%;
   }
 
   .contain-logo{

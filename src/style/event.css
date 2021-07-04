@@ -1,3 +1,6 @@
+#events-admin{
+  min-height: 600px;
+}
 
 #events h2{
     border-left: 8px solid #932724;
@@ -7,6 +10,10 @@
 #events a:hover{
   text-decoration: none;
   color:#932724;
+}
+
+.edition-event{
+  min-width: 230px;
 }
 
 #events .cart{
@@ -62,6 +69,4 @@
   }
 
   @media screen and (min-width:571px){
-    #events {
-    }
   }

@@ -1,0 +1,8 @@
+[
+    {"materiel":"Ordinateur", "limit": 3},
+    {"materiel":"Sonorisation", "limit": 2},
+    {"materiel":"Chaise", "limit": 10},
+    {"materiel":"Table", "limit": 2},
+    {"materiel":"Tableau", "limit": 1},
+    {"materiel":"Vidéo projecteur", "limit": 1}
+]

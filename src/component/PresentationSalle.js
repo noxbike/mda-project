@@ -1,18 +1,12 @@
 import React, { useState, useEffect} from 'react'
-const localhost = require('../component/config.json');
 
 export default function PresentationSalle() {
     const [ salle, setSalle ] = useState([]);
 
     useEffect(() => {
-        fetch(`http://${ localhost.localhost }/api/salles/`,{
-            method:'GET',
-            headers:{
-                'Content-Type': 'application/json'
-            }
-        })
+        fetch(`./texte/salle.json`)
         .then(res => res.json())
-        .then((data) => setSalle(data.salleFound))
+        .then((data) => setSalle(data))
     },[])
 
 

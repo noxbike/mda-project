@@ -53,7 +53,7 @@ a {
 }
 
 @media screen and  (min-width: 319px){
-  .App, .disconnected{
+  .App{
     min-height:100vh;
     height:100%;
     position: relative;
@@ -62,7 +62,7 @@ a {
 }
 
 @media screen and (min-width: 989px){
-  .App, .disconnected{
+  .App{
     padding-bottom:201px;
   }
 }

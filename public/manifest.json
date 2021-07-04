@@ -3,18 +3,18 @@
   "name": "Maison des Associations de Saint-Benoît",
   "icons": [
     {
-      "src": "logo-mda.png",
+      "src": "favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
-      "type": "image/png"
+      "type": "image/x-icon"
     },
     {
-      "src": "logo-mda.png",
-      "type": "image/png",
+      "src": "favicon.ico",
+      "type": "image/x-icon",
       "sizes": "192x192"
     },
     {
-      "src": "logo-mda.png",
-      "type": "image/png",
+      "src": "favicon.ico",
+      "type": "image/x-icon",
       "sizes": "512x512"
     }
   ],

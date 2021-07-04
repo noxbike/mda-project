@@ -20,6 +20,7 @@ export default function RendezVous () {
         fetch(`http://${localhost.localhost}/api/calendarId`,{
             method: 'GET',
             headers: {
+                'Access-Control-Allow-Origin': '*',
                 'Content-Type': 'application/json'
             }
         })
@@ -32,25 +33,27 @@ export default function RendezVous () {
             return (
                 <div id='reserver'>
                     <div className='row col-12 col-xl-10 ml-auto mr-auto pb-4 '>
-                        <div className={ `application animate__animated${form ? ' animate__backInLeft' : ' d-none'} row col-12 col-sm-8 col-md-5 col-lg-4` } style={{ marginLeft:'auto', marginRight: 'auto', backgroundColor: 'white' }}>
-                            <div className='col-12 text-right'>
-                                <FontAwesomeIcon icon={ faTimes } size="2x" className='close-btn' onClick={ () => displayForm() } />
+                        <div className={ `application animate__animated${form ? ' animate__backInLeft' : ' d-none'} row col-12 col-sm-8 col-md-5 col-lg-4 p-0` } style={{ marginLeft:'auto', marginRight: 'auto', backgroundColor: 'white' }}>
+                            <div className='row justify-content-between align-items-center col-12' style={{background:'rgb(237, 83, 83)',height:'70px', color:'white', borderRadius:'10px 10px 0px 0px'}}>
+                                <h4 className='text-left'>Prendre rendez-vous</h4>
+                                <FontAwesomeIcon icon={ faTimes } size="1x" className='close-btn' onClick={ () => displayForm() } />
                             </div>
-                            <h4 className='col-12 text-center mb-4'>Prendre rendez-vous</h4>
                             <FormulaireRV salle={ data } error={ setError }/>
                         </div>
-                        <div style={{backgroundColor: 'white'}} className='sheduler row col-12 col-md-6 col-lg-7 mt-4 ml-auto mr-auto'>
-                            <div className='row col-12 align-items-center'>
-                                <div className='col-6 col-md-6 p-0 mb-2'>
+                        <div style={{backgroundColor: 'white'}} className='sheduler row col-12 col-md-6 col-lg-7 mt-4 p-0 ml-auto mr-auto'>
+                            <div className='row col-12 align-items-center p-0 ml-auto mr-auto'  style={{backgroundColor:'rgb(237, 83, 83)', height:'70px', color:'white', borderRadius:'10px 10px 0px 0px'}}>
+                                <div className='col-6 col-md-6 mb-2'>
                                     <h4>Agenda de rendez-vous</h4>
                                 </div>
                                 <div className='col-6 col-md-6 mb-2 text-right'>
-                                    <button onClick={ () => displayForm() }>Rendez-vous</button>
+                                    <button style={{backgroundColor:'rgb(209, 61, 61)'}} onClick={ () => displayForm() }>Rendez-vous</button>
                                 </div>
                             </div>
-                            <Calendrier
-                                calendarId={ calendarId }
-                            />
+                            <div className='col-12 mb-4'>
+                                <Calendrier
+                                    calendarId={ calendarId }
+                                />
+                            </div>
                         </div>
                     </div>
                 </div>

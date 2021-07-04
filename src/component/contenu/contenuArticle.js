@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import parse from 'html-react-parser';
-import Moment from 'moment';
-Moment.locale('fr');
+import time from '../utils/timeFormat';
 const localhost = require('../config.json');
 
 export default class contenuArticle extends Component{
@@ -26,12 +25,6 @@ export default class contenuArticle extends Component{
         .then(res => this.setState({data: res.articleFound}))
     }
 
-    time(date){
-        date= new Date(date);
-        date = Moment(date).format("Do MMM YYYY");
-        return date;
-    }
-
     render(){
         const { data } = this.state;
         return (
@@ -41,7 +34,7 @@ export default class contenuArticle extends Component{
                         <div>
                             <h1> { data.titre }</h1>
                             <div style={{color:'gray'}}>
-                                <p>Publié le { this.time(data.createdAt) }</p>
+                                <p>Publié le { time(data.createdAt) }</p>
                                 <p>Par { data.auteur }</p>
                             </div>
                             <img className='mb-4' src={`http://${localhost.localhost}/${data.photo}`} width='100%' alt='top-photo'/>

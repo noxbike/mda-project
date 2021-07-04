@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Route, Redirect } from 'react-router-dom';
 import Navbar from './component/Navbar';
-import ScrollToTop from './component/ScrollToTop';
+import ScrollToTop from './component/utils/ScrollToTop';
 import NavbarMobile from './component/NavbarMobile';
 import Authentification from './component/authentification/Authentification';
 import Footer from './component/Footer';
@@ -28,10 +28,10 @@ const RenderRoute = (route) => {
 
 function App() {
     const token = localStorage.getItem('x-xsrf-token');
-    const [ user, setUser ] = useState(null)
+    const [ user, setUser ] = useState(null);
 
     useEffect(() => {
-      fetch(`http://${localhost.localhost}/api/auth`,{
+        fetch(`http://${localhost.localhost}/api/auth`,{
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -40,19 +40,24 @@ function App() {
           credentials:'include'
         })
         .then(data => data.json())
-        .then(res => setUser(res.user))
+        .then(res => res ? setUser(res) : reset())
+
     },[])
+
+    const reset = () => {
+      setUser(null)
+      localStorage.removeItem('x-xsrf-token');
+    }
     
     return (
       <div className={user ? 'App': 'disconnected'}>
         <BrowserRouter>
             <ScrollToTop/>
-              {user ?
+              {user &&
               <div>
-                <NavbarMobile user={user}/>
-                <Navbar user={user}/>
-              </div>
-              : ''}
+                <NavbarMobile user={user.email}/>
+                <Navbar user={user.email}/>
+              </div>}
             <div id='content'>
               {
                 Routes.map((route, index) =>
@@ -60,9 +65,7 @@ function App() {
                 )
               }
             </div>
-            {user ?
-            <Footer/>
-            : ''}
+            {user && <Footer/>}
         </BrowserRouter>
       </div>
     );

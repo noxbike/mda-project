@@ -2,7 +2,7 @@ import DemandeAdhesion from '../layout/DemandeAdhesion';
 import Login from '../layout/Login';
 import Service from '../layout/Service';
 import CestQuoi from '../component/CestQuoi';
-import Contact from '../component/Contact';
+import Contact from '../layout/Contact';
 import Accueil from '../layout/Accueil';
 import Mission from '../layout/Mission';
 import PageError from '../layout/PageError';
@@ -12,8 +12,8 @@ import Reservation from '../layout/Reservation';
 import Faq from '../layout/Faq';
 import CreatePassword from '../layout/CreatePassword';
 import FormAdmin from '../component/reservation/FormAdmin';
-import Ressources from '../component/Ressources';
-import Gallerie from '../component/Gallerie';
+import Ressources from '../layout/Ressources';
+import Gallerie from '../layout/Gallerie';
 import RendezVous from '../layout/RendezVous';
 import CarouselAdmin from '../component/Admin/CarouselAdmin';
 import ArticlesAdmin from '../component/Admin/ArticlesAdmin';
@@ -42,10 +42,15 @@ import InscriptionSV from '../component/ActualisationServiceCivique/InscriptionS
 import contenuArticle from '../component/contenu/contenuArticle';
 import contenuAgenda from '../component/contenu/contenuAgenda';
 import Redirect404 from '../component/Redirect404';
-import ToutArticle from '../component/contenu/ToutArticle';
-import ToutEvenement from '../component/contenu/ToutEvenement';
-import ToutVideo from '../component/contenu/ToutVideo';
+import ToutArticle from '../layout/ToutArticle';
+import ToutEvenement from '../layout/ToutEvenement';
+import ToutVideo from '../layout/ToutVideo';
 import Main from '../component/vitrineAssociation/Main';
+import Dashboard from '../layout/Dashboard';
+import DashboardAdherent from '../component/AdherentDashboard/DashboardAdherent';
+import ContenuGallerie from '../component/Gallerie/ContenuGallerie';
+import ContenuGallerieAdmin from '../component/Admin/ContenuGallerieAdmin';
+import ListeAdmin from '../component/Admin/ListeAdmin';
 
 const Routes = [
     {
@@ -101,7 +106,7 @@ const Routes = [
     {
         path:"/association/:name",
         component: Main,
-        needsAuth: false,
+        needsAuth: true,
     },
     {
         path:"/article",
@@ -129,6 +134,11 @@ const Routes = [
         needsAuth: true,
     },
     {
+        path:"/dashboard",
+        component: Dashboard,
+        needsAuth: true
+    },
+    {
         path: "/admin",
         component: CarouselAdmin,
         needsAuth: true,
@@ -146,7 +156,7 @@ const Routes = [
     {
         path: "/password",
         component: CreatePassword,
-        needsAuth: false,
+        needsAuth: true,
     },
     {
         path:"/listReservation/:id",
@@ -164,6 +174,16 @@ const Routes = [
         needsAuth:true
     },
     {
+        path:"/gallerie/:name",
+        component: ContenuGallerie,
+        needsAuth: true
+    },
+    {
+        path:"/admin/gallerie/:name",
+        component: ContenuGallerieAdmin,
+        needsAuth: true
+    },
+    {
         path:"/rendez-vous",
         component: RendezVous,
         needsAuth:true
@@ -171,7 +191,7 @@ const Routes = [
     {
         path:"/service-civique",
         component: LoginSC,
-        needsAuth:false
+        needsAuth:true
     },
     {
         path:"/service-civique/inscription",
@@ -254,6 +274,11 @@ const Routes = [
         needsAuth: true
     },
     {
+        path:"/admin/liste-administrateur",
+        component: ListeAdmin,
+        needsAuth: true
+    },
+    {
         path:"/admin/service-civique",
         component: ServiceCiviqueAdmin,
         needsAuth: true
@@ -280,6 +305,11 @@ const Routes = [
     },
     {   path: '/404',
         component: PageError,
+        needsAuth: true,
+    },
+    {
+        path: '/adherent/:email',
+        component: DashboardAdherent,
         needsAuth: true,
     }
 ]

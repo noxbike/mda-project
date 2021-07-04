@@ -1,9 +1,9 @@
 import React from 'react'
 
-export default function contenuMission() {
+export default function Info() {
     return (
         <div>
-            
+            Information
         </div>
     )
 }

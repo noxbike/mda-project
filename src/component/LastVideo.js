@@ -1,11 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import SkeletonElement from './skeleton/SkeletonElement';
 import SkeletonVideo from './skeleton/skeletonVideo';
-import parse from 'html-react-parser';
+import Video from './contenu/Video';
+import parse from 'html-react-parser'
 import localhost from './config.json';
 import { Link } from 'react-router-dom';
+import cutText from './utils/cutText'
 
-export default function Video (){
+export default function LastVideo (){
     const [ video, setVideo ] = useState(null);
 
     useEffect(() => {
@@ -21,17 +23,17 @@ export default function Video (){
     return(
         <div className='video'>
             
-            <div className='' style={{marginRight:'auto', marginLeft:'auto'}}>
-                {video && 
-                <div>
-                    <div className="embed-responsive embed-responsive-16by9">
-                        {parse(video.url)}
+            <div style={{marginRight:'auto', marginLeft:'auto'}}>
+                {video &&
+                    <div>
+                        <div className="embed-responsive embed-responsive-16by9">
+                            {parse(video.url)}
+                        </div>
+                        <div className='mt-4'>
+                            <h5>{cutText(video.titre, 42)}</h5>
+                            <p>{video.auteur}</p>
+                        </div>
                     </div>
-                    <div className='mt-4'>
-                        <h5>{video.titre}</h5>
-                        <p>{video.auteur}</p>
-                    </div>
-                </div>
                 }
                 {!video && <SkeletonVideo />}
                 

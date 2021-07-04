@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import regexEmail from '../fomulaireAdhesion/Regex';
+import validator from 'validator';
 var localhost = require('../config.json');
 
 export default function EmailInfo(props) {
@@ -16,7 +16,7 @@ export default function EmailInfo(props) {
     },[])
 
     const verifyMail = () => {
-        let test = regexEmail.test(props.email);
+        let test = validator.isEmail(props.email);
         if(!test){
             setError('Email invalide ou vide');
         }

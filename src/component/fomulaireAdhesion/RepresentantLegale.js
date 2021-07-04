@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import ScrollToTop from '../ScrollToTop';
-import regexEmail from './Regex';
+import ScrollToTop from '../utils/ScrollToTop';
+import validator from 'validator';
 
 export default function RepresentantLegale(props) {
     const [ message, setMessage ] = useState('');
@@ -13,7 +13,7 @@ export default function RepresentantLegale(props) {
             valid=(value === null || value === '' ? false : valid );
         }
         
-        let emailValid = regexEmail.test(tab[6]);
+        let emailValid = validator.isEmail(tab[6]);
 
         setEmail( !emailValid ? 'Email invalide' : '');
         setMessage( !valid ? 'Tout les champs doit être rempli' : '');

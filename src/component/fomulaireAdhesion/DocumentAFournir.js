@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ScrollToTop from '../ScrollToTop';
+import ScrollToTop from '../utils/ScrollToTop';
 import Uploader from '../Uploader';
 var localhost = require('../config.json');
 

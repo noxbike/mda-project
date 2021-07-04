@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import ScrollToTop from '../ScrollToTop';
-import regexEmail from './Regex';
+import ScrollToTop from '../utils/ScrollToTop';
+import validator from 'validator';
 
 export default function IdentificationAssociation(props) {
     const [ message, setMessage ] = useState('');
@@ -12,7 +12,7 @@ export default function IdentificationAssociation(props) {
             valid=(tab[i] === null || tab[i] === '' ? false : valid );
         }
         
-        let emailValid = regexEmail.test(tab[3]);
+        let emailValid = validator.isEmail(tab[3]);
 
         setEmail( !emailValid ? 'Email invalide' : '');
         setMessage( !valid ? 'Tout les champs doit être rempli' : '');
@@ -37,6 +37,18 @@ export default function IdentificationAssociation(props) {
                     <div className="form__group field" >
                         <input type="input" className="form__field" placeholder="Nom" name="Nom" id='Nom' onChange={(e) => props.setter.setNomAssociation(e.target.value)} value={props.value.nomAssociation} required />
                         <label htmlFor="Nom" className="form__label">Nom de l'association *</label>
+                    </div>
+                </div>
+
+                <div className=' mb-4 col-lg-5'>
+                    <div className="form__group field">
+                        <select className="form__field" id="exampleFormControlSelect1" onChange={(e) => props.setter.setTheme(e.target.value)} value={props.value.theme}>
+                            <option value='culturel'>Culturel</option>
+                            <option value='sportive'>Sportive</option>
+                            <option value='Environement'>Environnement</option>
+                            <option value='solidaire'>Solidaire</option>
+                        </select>
+                        <label className="form__label" htmlFor="exampleFormControlSelect1">Thème</label>
                     </div>
                 </div>
 
@@ -71,7 +83,7 @@ export default function IdentificationAssociation(props) {
 
                 <div className=' mb-4 col-lg-5'>
                     <div className="form__group field" >
-                        <input type="date" className="form__field" placeholder="Date de publication au journal officiel" name="Date-de-publication-au-journal-officiel" id='Date-de-publication-au-journal-officiel' onChange={(e) => props.setter.setDateParutionAuJournalOfficiel(e.target.value)} value={props.value.dateCreation} required />
+                        <input type="date" className="form__field" placeholder="Date de publication au journal officiel" name="Date-de-publication-au-journal-officiel" id='Date-de-publication-au-journal-officiel' onChange={(e) => props.setter.setDateParutionAuJournalOfficiel(e.target.value)} value={props.value.dateParutionAuJournalOfficiel} required />
                         <label htmlFor="Date-de-publication-au-journal-officiel" className="form__label">Date de publication au Journal Officiel</label>
                     </div>
                 </div>

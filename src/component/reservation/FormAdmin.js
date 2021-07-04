@@ -2,20 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import  { faCheck } from '@fortawesome/free-solid-svg-icons'
-import Moment from 'moment';
-Moment.locale('fr')
+import time from '../utils/timeFormat'
 const localhost = require('../config.json');
 
 export default function FormAdmin() {
     const [ data, setData ] = useState([])
     let { id } = useParams();
-
-    const time = (date) => {
-        date= new Date(date);
-        date = Moment(date).format("dddd Do MMM YYYY HH:mm");
-        return date;
-    }
-
+    
     useEffect(() => {
         fetch(`http://${localhost.localhost}/api/calendar/data/${id}`,{
             method: 'GET',

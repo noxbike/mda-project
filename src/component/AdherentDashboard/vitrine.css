@@ -1,0 +1,9 @@
+.cart:hover{
+    text-decoration: none;
+    color:rgb(145, 23, 23);
+}
+
+.bodyCard{
+    font-size: 15px;
+    font-weight: 100;
+}

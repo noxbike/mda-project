@@ -1,43 +1,43 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom';
 import PresentationSalle from '../component/PresentationSalle';
 import Services from '../component/Services'
 import '../style/services.css';
-
+import parse from 'html-react-parser'
 
 export default function Service() {
-    
+    const [ presentation, setPresentation ]  = useState(null)
+
+    useEffect(() => {
+        fetch(`./texte/nosServices.json`)
+        .then(res => res.json())
+        .then((data) => setPresentation(data))
+    },[])
+
     return (
         <div id='services'>
             <div className='banniere mb-4'>
                 <div className='caption text-center'>
-                    <h3>Responsables associatifs,<br/>
-                        nous oeuvrons à apporter des réponses<br/>
-                        à vos besoins et préoccupations de bénévoles ...
-                    </h3>
+                    {presentation && <h3>{parse(presentation.titreH3)}</h3>}
                 </div>
             </div>
             <div className='col-lg-10 ml-auto mr-auto'>
                 <div className='col-lg-12'>
-                    <h4 className='text-center'>Les outils et services de la Maison Des Associations de Saint-Benoît</h4>
-                    <p className='text-center mb-4'>Dans le cadre de nos missions d’appui, nous accompagnons
-                    la vie de votre association en vous apportant ...</p>
+                    {presentation && <h4 className='text-center'>{parse(presentation.titreH4)}</h4>}
+                    {presentation && <p className='text-center mb-4'>{parse(presentation.headersParagraphe)}</p>}
                 </div>
                 <Services />
             </div>
             <div className='reservation pb-4 mb-4 mt-4 col-lg-12'>
                     <PresentationSalle />
                     <div className='text-center'>
-                        <h6 className='text-center'><strong>La réservation des salles est en priorité réservée aux adhérents de la Maison des Associations de Saint-Benoit</strong></h6>
+                        {presentation && <h6 className='text-center'><strong>{parse(presentation.paragrapheReservation)}</strong></h6>}
                         <div className='mt-4' >
                             <Link to='/declaration-association' style={{ background:'#932724', color:'white', border:'none', height:'40px', width: '220px', fontWeight:'700', padding: '10px 15px 10px 15px', textDecoration:'none' }}>Demande d'adhésion</Link>
                         </div>
                     </div>
             </div>
-            <p className='text-center ml-auto mr-auto' style={{ width:'60%' }}>L’occupation d’un espace à la Maison des Associations s’effectue gratuitement à titre précaire
-            et révocable selon la disponibilité du planning de réservation.  Les demandes de réservation doivent parvenir au plus tard 8 jours
-            avant la date de l’événement. Chaque mise à disposition d’espace vaut acceptation du règlement
-            intérieur de la Maison des Associations de Saint-Benoît qui est affiché dans le hall d’accueil</p>
+            {presentation && <p className='text-center ml-auto mr-auto' style={{ width:'60%' }}>{parse(presentation.paragrapheFooter)}</p>}
         </div>
     )
 }

@@ -1,0 +1,27 @@
+[
+    {
+        "logo":"./image/logo-mda.png",
+        "fichier": [
+            "Caractère intéressé ou désintéressé de la gestion",
+            "Comment rédiger un dossier de sponsoring",
+            "Critère de non-concurrence",
+            "Déclarer son association",
+            "Fiche dons aux associations",
+            "Publicité des comptes annuels",
+            "Ressources de L'association",
+            "Obligations comptables et financières",
+            "Petit guide de survie",
+            "Les modes d'interventions exclusifs du contrat de travail",
+            "La rémunération des membres et dirigeants d'associations",
+            "L'appréciation du caractère lucratif de l'association et ses conséquences"
+        ]
+    },
+    {
+        "logo":"https://upload.wikimedia.org/wikipedia/fr/thumb/2/2f/Logo_Service_civique.svg/1280px-Logo_Service_civique.svg.png",
+        "fichier":[
+            "8 PRINCIPES FONDAMENTAUX du SERVICE CIVIQUE",
+            "Fiche de besoins  volontaire SCV 2020",
+            "FICHE de Mission SC2020"
+        ]
+    }
+]

@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import parse from 'html-react-parser';
-import Moment from 'moment';
-Moment.locale('fr');
+import time from '../utils/timeFormat';
 const localhost = require('../config.json');
 
 export default class contenuAgenda extends Component {
@@ -26,11 +25,6 @@ export default class contenuAgenda extends Component {
         .then(res => this.setState({data: res.agendaFound}))
     }
 
-    time(date){
-        date= new Date(date);
-        date = Moment(date).format("Do MMM YYYY");
-        return date;
-    }
     render(){
         const { data, url } = this.state;
 
@@ -41,7 +35,7 @@ export default class contenuAgenda extends Component {
                         <div>
                             <h1> { data.titre }</h1>
                             <div style={{color:'gray'}}>
-                                <p>Publié le { this.time(data.createdAt) }</p>
+                                <p>Publié le { time(data.createdAt) }</p>
                                 <p>Par { data.auteur }</p>
                             </div>
                             <div className='row justify-content-center'>
@@ -50,7 +44,7 @@ export default class contenuAgenda extends Component {
                             {data.contenu ? parse(data.contenu): null}
                             <div className='row col-12 mt-4' style={{background:'gray', color:'white'}}>
                                 <p className='col-6 mt-4'><strong>Où:</strong> {data.ou}</p>
-                                {!data.au ? <p className='col-6 mt-4'><strong>Date:</strong> {this.time(data.du)}</p> : <div className='row col-6 justify-content-around mt-4'><p><strong>Du:</strong> {this.time(data.du)}</p><p><strong>Au:</strong> {this.time(data.au)}</p></div>}
+                                {!data.au ? <p className='col-6 mt-4'><strong>Date:</strong> {time(data.du)}</p> : <div className='row col-6 justify-content-around mt-4'><p><strong>Du:</strong> {time(data.du)}</p><p><strong>Au:</strong> {time(data.au)}</p></div>}
                             </div>
                         </div>
                     }

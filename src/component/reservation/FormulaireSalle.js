@@ -2,11 +2,14 @@ import React, { useState } from 'react'
 import { DateTimePicker,  MuiPickersUtilsProvider, } from '@material-ui/pickers';
 import DateFnsUtils from '@date-io/date-fns';
 import frLocale from "date-fns/locale/fr";
+import axios from 'axios'
+var materiel = require('./materiel.json');
 const localhost = require('../config.json');
 
 export default function FormulaireSalle(props) {
     const [ object, setObject ] = useState('Ordinateur')
-    const [ number, setNumber ] =useState(1);
+    const [ limit, setLimit ] = useState(1)
+    const [ number, setNumber ] =useState(1)
     const [ email, setEmail ] = useState(null);
     const [ description, setDescription ] = useState(null)
     const [ nbPersonne, setNbPersonne ] = useState(null)
@@ -23,31 +26,32 @@ export default function FormulaireSalle(props) {
             return setError(['red', 'Tout les champs avec un * doivent être rempli']);
         }
 
-        var token = localStorage.getItem('x-xsrf-token');
-        fetch(`http://${ localhost.localhost }/api/reservation/`,{
-            method:'POST',
-            body: JSON.stringify({
-                'association': association,
-                'email': email,
-                'nombrePersonne': nbPersonne,
-                'calendarId': salle,
-                'description': description,
-                'startTime': startTime,
-                'endTime': endTime
-            }),
+        axios.post(`http://${localhost.localhost}/api/reservation`, {
+            'association': association,
+            'email': email,
+            'nbrPerson': nbPersonne,
+            'calendarId': salle,
+            'description': description,
+            'startTime': startTime,
+            'endTime': endTime
+        },{
+            method: "POST",
             headers:{
-                'Content-Type': 'application/json',
-                'x-xsrf-token': token
+                'Access-Control-Allow-Origin': '*',
+                'Content-Type': 'application/json'
             },
-            credentials: 'include'
+            withCredentials: true,
+            credentials: 'include',
         })
-        .then(res => res.json())
         .then((result) => {
-            result.message ? props.error(['#64d134', result.message]):setError(['red', result.erreur]);
+            result.data.message ? props.error(['#64d134', result.data.message]):setError(['red', result.erreur]);
         })
     }
 
     const addMateriel = (number, object) => {
+        if(number > 1){
+            object = object +'s';
+        }
         let tab;
         if(description === null){
             tab = [];
@@ -69,8 +73,16 @@ export default function FormulaireSalle(props) {
         }
     }
 
+    const limitMateriel = () => {
+        for(let value of materiel){
+            if(value.materiel === object){
+                return value.limit;
+            }
+        }
+    }
+
     return (
-        <form onSubmit={handleSubmit} className='formulaireReservation pl-0 pr-0 row'>
+        <form onSubmit={handleSubmit} className='formulaireReservation p-4 row'>
             <div className='col-12 mb-4'>
                 <div>
                     {error &&<p style={{color:`${error[0]}`, fontSize:'0.8em', fontWeight:'700'}}>{error[1]}</p>}
@@ -86,7 +98,7 @@ export default function FormulaireSalle(props) {
                 <div className='row mb-2'>
                         <div className='col-7' >
                             <select style={{outline:'none', border:'none'}} className="e-field e-input" onChange={(event) => {setSalle(event.target.value); setNbPersonne(1)}} value={ salle } id="inlineformCustomSelectPref">
-                                    {props.salle.map(item => item.name !== 'Rendez-vous' ?
+                                    {props.salle && props.salle.map(item => item.name !== 'Rendez-vous' ?
                                         <option key={item.name} value={item.name}>{item.name}</option> : ''
                                     )}
                             </select>
@@ -107,16 +119,11 @@ export default function FormulaireSalle(props) {
                     {!description && <h6 className='text-center'style={{fontWeight:'700'}}>Aucun matériel réservé</h6>}
                 </div>
                 <div className='col-12 mb-2 row'>
-                    <select className='col-6 e-field e-input' onChange={(e) => setObject(e.target.value)} value={object} style={{border:'none', outline:'none'}}>
-                        <option value='Ordinateur'>Ordinateur</option>
-                        <option value='Sonorisation'>Sonorisation</option>
-                        <option value='Chaise'>Chaise</option>
-                        <option value='Table'>Table</option>
-                        <option value='Tableau'>Tableau</option>
-                        <option value='Vidéo projecteur'>Vidéo projecteur</option>
+                    <select className='col-6 e-field e-input' onChange={(e) => {setObject(e.target.value); setNumber(1);}} value={object} style={{border:'none', outline:'none'}}>
+                        {materiel.map(item => <option value={item.materiel}>{item.materiel}</option>)}
                     </select>
                     <div className='col-4'>
-                        <input type='number' min="1" max="10" onChange={(e) => setNumber(e.target.value)} value={number} className='e-field e-input' placeholder="Nombre"/>
+                        <input type='number' min="1" max={limitMateriel()} onChange={(e) => setNumber(e.target.value)} value={number} className='e-field e-input' placeholder="Nombre"/>
                     </div>
                     <div className='col-2'>
                         <a className='btn-addMateriel' onClick={() => addMateriel(number, object) }>Ajouter</a>
@@ -127,13 +134,13 @@ export default function FormulaireSalle(props) {
                 <div className='col-6'>
                     <label>Date de début</label>
                     <MuiPickersUtilsProvider utils={DateFnsUtils} locale={frLocale}>
-                        <DateTimePicker value={startTime} format='dd MMM yyyy HH:mm' minutesStep='60'disablePast={true} ampm={false} type='hours' onChange={setStartTime} />
+                        <DateTimePicker value={startTime} format='dd MMM yyyy HH:mm' minutesStep={60} disablePast={true} ampm={false} type='hours' onChange={setStartTime} />
                     </MuiPickersUtilsProvider>
                 </div>
                 <div className='col-6'>
                         <label>Date de fin</label>
                         <MuiPickersUtilsProvider utils={DateFnsUtils} locale={frLocale}>
-                            <DateTimePicker value={endTime} format='dd MMM yyyy HH:mm' minutesStep='60' disablePast={true} ampm={false} type='hours' onChange={setEndTime} />
+                            <DateTimePicker value={endTime} format='dd MMM yyyy HH:mm' minutesStep={60} disablePast={true} ampm={false} type='hours' onChange={setEndTime} />
                         </MuiPickersUtilsProvider>
                 </div>
             </div>

@@ -1,11 +1,11 @@
 import { faCheck } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react'
-import ScrollToTop from '../ScrollToTop';
+import ScrollToTop from '../utils/ScrollToTop';
 var localhost = require('../config.json');
 
 export default function Confirmation(props) {
-    const [ message, setMessage ] = useState("Votre demande d'adhésion a bien été enregistré. Un email vous sera envoyé pour les prochaines étapes à suivre")
+    const [ message, setMessage ] = useState(null)
     const verify = () => {
         fetch(`http://${localhost.localhost}/api/nouvelle-adhesion`,{
             method: 'POST',
